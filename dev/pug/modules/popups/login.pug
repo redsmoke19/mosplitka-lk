@@ -1,0 +1,39 @@
+.popup.popup_login-form.login-form
+	.popup__content.login-form__content
+		.popup__body.login-form__body
+			.popup__close.login-form__close
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.login-form__picture
+				img.login-form__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.login-tabs
+				.login-tabs__links
+					button.login-tabs__link._active(onclick="getLoginTabs(event, 'registration')") Регистрация
+					button.login-tabs__link(onclick="getLoginTabs(event, 'login')") Вход
+				.login-tabs__content#registration
+					form.login-tabs__form.login-tabs__form--registration(action="" method="post")
+						.login-tabs__fields
+							.login-tabs__field
+								label.login-tabs__label(for="regName") Имя
+								input.login-tabs__input(type="text" name="regName" id="regName" placeholder="Иван")
+							.login-tabs__field
+								label.login-tabs__label(for="regPhone") Телефон
+								input.login-tabs__input(type="tel" name="regPhone" id="regPhone" placeholder="7 (912) 123 - 45 - 67")
+							.login-tabs__field
+								label.login-tabs__label(for="regMail") Электронная почта
+								input.login-tabs__input(type="email" name="regMail" id="regMail" placeholder="example@mail.ru")
+							.login-tabs__field
+								label.login-tabs__label(for="regPassword") Пароль
+								input.login-tabs__input(type="password" id="regPassword" name="regPassword")
+						button.login-tabs__button(type="submit") Зарегестрироваться
+					p.login-tabs__agree Нажимая на кнопку, вы принимаете Согласие с #[a(href="#") политикой конфиденциальности]
+				.login-tabs__content#login
+					form.login-tabs__form.login-tabs__form--enter(action="" method="post")
+						.login-tabs__fields
+							.login-tabs__field
+								label.login-tabs__label(for="enterPhone") Телефон
+								input.login-tabs__input(type="tel" name="enterPhone" id="enterPhone" placeholder="7 (912) 123 - 45 - 67")
+							.login-tabs__field
+								label.login-tabs__label(for="enterPassword") Пароль
+								input.login-tabs__input(type="password" id="enterPassword" name="enterPassword")
+						button.login-tabs__button(type="submit") Вход
+

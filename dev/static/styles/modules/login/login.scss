@@ -1,0 +1,120 @@
+.login-form {
+  &__picture {
+    display: block;
+    margin: 0 0 36px 0;
+  }
+}
+
+.login-tabs {
+  &__links {
+    display: flex;
+    margin: 0 0 48px 0;
+    position: relative;
+    &::after {
+      background-color: $bg-grey-color;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+  &__link {
+    background-color: transparent;
+    border: none;
+    color: $text-grey-color;
+    font-size: 20px;
+    line-height: 16px;
+    padding: 12px 0;
+    &:not(:last-child) {
+      margin: 0 32px 0 0;
+    }
+    &._active {
+      color: $text-orange-color;
+      font-weight: 600;
+      position: relative;
+      &::before {
+        background-color: $text-orange-color;
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    display: none;
+  }
+  &__fields {
+    margin: 0 0 32px 0;
+    padding-bottom: 32px;
+    position: relative;
+    &::after {
+      background-color: $bg-grey-color;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-of-type) {
+      margin: 0 0 32px 0;
+    }
+  }
+  &__label {
+    color: $text-grey-color;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0 0 12px 0;
+  }
+  &__input {
+    background-color: rgba(232, 236, 244, 0.2);
+    border: 1px solid $border-grey-color;
+    border-radius: 6px;
+    padding: 13px;
+    &::placeholder {
+      color: $text-light-grey-color;
+      font-size: 15px;
+    }
+  }
+  &__button {
+    background-color: rgba($text-grey-color, 0.25);
+    border: none;
+    border-radius: 6px;
+    color: $text-grey-color;
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    padding: 16px;
+  }
+  &__agree {
+    color: $text-grey-color;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    a {
+      color: $text-orange-color;
+    }
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
