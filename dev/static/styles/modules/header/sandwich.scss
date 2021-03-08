@@ -1,0 +1,50 @@
+.sandwich {
+  cursor: pointer;
+  height: 32px;
+  position: relative;
+  width: 32px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 1px;
+    background-color: $bg-grey-color;
+    right: -16px;
+    top: calc(50% - 20px);
+  }
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+  &__line {
+    background-color: $text-orange-color;
+    display: block;
+    height: 3px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: all linear .4s;
+    width: 22px;
+    border-radius: 3px;
+    &--top { transform: translate(-50%, calc(-50% - 6px)); }
+    &--bottom { transform: translate(-50%, calc(-50% + 6px)); }
+  }
+  &._active {
+    position: relative;
+    .sandwich__line {
+      &--middle {
+        background-color: transparent;
+        transform: translate(-70%, -50%);
+      }
+      &--top {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &--bottom {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}

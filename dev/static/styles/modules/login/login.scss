@@ -2,6 +2,27 @@
   &__picture {
     display: block;
     margin: 0 0 36px 0;
+    @media screen and (min-width: $tablet) {
+      opacity: 0;
+      margin: 0 0 16px 0;
+      transition: all 0.2s ease 0s;
+      width: 370px;
+      z-index: 2;
+      img {
+        height: auto;
+        width: 110px;
+      }
+    }
+  }
+  &__title {
+    display: none;
+    @media screen and (min-width: $tablet) {
+      display: block;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+    }
   }
 }
 
@@ -19,6 +40,9 @@
       position: absolute;
       width: 100%;
     }
+    @media screen and (min-width: $mobil) {
+      margin: 0 0 24px 0;
+    }
   }
   &__link {
     background-color: transparent;
@@ -27,13 +51,27 @@
     font-size: 20px;
     line-height: 16px;
     padding: 12px 0;
+    position: relative;
+    transition: all ease-out 0.15s;
     &:not(:last-child) {
       margin: 0 32px 0 0;
+    }
+    @media screen and (min-width: $tablet) {
+      font-size: 14px;
+      line-height: 16px;
+      &:not(:last-child) {
+        margin: 0 24px 0 0;
+      }
+    }
+    @media screen and (min-width: $desktop) {
+      cursor: pointer;
+      &:hover {
+        color: rgba($text-grey-color, 0.7);
+      }
     }
     &._active {
       color: $text-orange-color;
       font-weight: 600;
-      position: relative;
       &::before {
         background-color: $text-orange-color;
         bottom: 0;
@@ -44,14 +82,36 @@
         width: 100%;
         z-index: 1;
       }
+      @media screen and (min-width: $desktop) {
+        cursor: pointer;
+        &:hover {
+          color: rgba($text-orange-color, 0.7);
+        }
+      }
+    }
+  }
+  &__wrapper {
+    position: relative;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: max-height ease-out 0.15s, opacity ease-out 0.5s 0.2s;
+    opacity: 0;
+    width: 100%;
+    max-height: 0;
+    &._active {
+      max-height: none;
+      opacity: 1;
     }
   }
   &__form {
     display: flex;
     flex-direction: column;
-  }
-  &__content {
-    display: none;
   }
   &__fields {
     margin: 0 0 32px 0;
@@ -66,6 +126,10 @@
       position: absolute;
       width: 100%;
     }
+    @media screen and (min-width: $tablet) {
+      margin: 0 0 24px 0;
+      padding-bottom: 23px;
+    }
   }
   &__field {
     display: flex;
@@ -73,18 +137,51 @@
     &:not(:last-of-type) {
       margin: 0 0 32px 0;
     }
+    &._complete {
+      position: relative;
+      &::before {
+        bottom: 15px;
+        content: '';
+        position: absolute;
+        background: url('../images/common/complete-arrow.svg') no-repeat center;
+        height: 14px;
+        right: 15px;
+        width: 18px;
+      }
+    }
+    &._error .login-tabs__input {
+      border-color: $text-orange-color;
+    }
+    @media screen and (min-width: $mobil) {
+      &:not(:last-of-type) {
+        margin: 0 0 24px 0;
+      }
+    }
+    @media screen and (min-width: $tablet) {
+      &:not(:last-of-type) {
+        margin: 0 0 16px 0;
+      }
+    }
   }
   &__label {
     color: $text-grey-color;
     font-size: 18px;
     line-height: 18px;
     margin: 0 0 12px 0;
+    @media screen and (min-width: $tablet) {
+      font-size: 14px;
+      line-height: 16px;
+      margin: 0 0 8px 0;
+    }
   }
   &__input {
     background-color: rgba(232, 236, 244, 0.2);
     border: 1px solid $border-grey-color;
     border-radius: 6px;
+    font-size: 15px;
+    line-height: 16px;
     padding: 13px;
+    position: relative;
     &::placeholder {
       color: $text-light-grey-color;
       font-size: 15px;
@@ -98,6 +195,23 @@
     font-size: 15px;
     margin: 0 0 8px 0;
     padding: 16px;
+    transition: all ease-out 0.15s;
+    @media screen and (min-width: $desktop) {
+      cursor: pointer;
+      &:hover {
+        background-color: rgba($text-grey-color, 0.45);
+      }
+    }
+    &._active {
+      background-color: $text-orange-color;
+      color: white;
+      @media screen and (min-width: $desktop) {
+        &:hover {
+          background-color: $text-orange-color;
+          opacity: 0.7;
+        }
+      }
+    }
   }
   &__agree {
     color: $text-grey-color;
@@ -106,15 +220,27 @@
     text-align: center;
     a {
       color: $text-orange-color;
+      @media screen and (min-width: $desktop) {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+    @media screen and (min-width: $mobil) {
+      padding: 0 75px;
+    }
+    @media screen and (min-width: $tablet) {
+      padding: 0;
     }
   }
-}
-
-@keyframes fadeEffect {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  &__fail {
+    display: none;
+    &._error {
+      color: $text-orange-color;
+      display: block;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+    }
   }
 }

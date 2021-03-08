@@ -3,6 +3,8 @@ $white: #fff;
 $black: #000;
 $bg-grey-color: #e8ecf4;
 $border-grey-color: #dddfe0;
+$icon-grey-color: #d5d7dd;
+$text-black-color: #303236;
 $text-grey-color: #94979e;
 $text-light-grey-color: #d5d7dd;
 $text-orange-color: #ee7656;
@@ -10,11 +12,12 @@ $text-orange-color: #ee7656;
 // Sizes
 $base-font-size: 16px;
 
-$tablet: 768;
-$large: 1024;
-$desktop: 1280;
+$mobil: 480px;
+$tablet: 768px;
+$large: 1000px;
+$desktop: 1280px;
 
-$content: 1000px;
+$content: 1182px;
 
 // Fonts
 $main-font: 'Montserrat', Arial, sans-serif;

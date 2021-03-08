@@ -1,1 +1,40 @@
-header { flex: 0 0 auto; }
+@import 'sandwich';
+header {
+  flex: 0 0 auto;
+}
+
+.header-user {
+  background-color: $white;
+  box-shadow: 0px 4px 8px rgba(213, 215, 221, 0.5);
+  padding: 16px 0;
+  position: relative;
+  z-index: 3;
+  .container {
+    @media screen and (min-width: $mobil) {
+      padding-left: 25px;
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__inner {
+    align-items: center;
+    display: flex;
+  }
+  &__exit {
+    align-items: center;
+    color: $text-black-color;
+    display: flex;
+    text-decoration: none;
+    transition: all ease-out 0.15s;
+    svg {
+      margin: 0 14px 0 0;
+    }
+    @media screen and (min-width: $desktop) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

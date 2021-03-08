@@ -1,5 +1,8 @@
-header.header-cabinet
+header.header-user
 	.container
-		.header-cabinet__wrapper
-			include ../navigation/sandwich/sandwich-nav
-			include ../navigation/main-nav/cabinet-nav
+		.header-user__content
+			include sandwich/sandwich-nav
+			.header-user__inner
+				a.header-user__exit(href="#")
+					+icon('icon-enter', 'header-user__icon', '16', '20')
+					span Выйти

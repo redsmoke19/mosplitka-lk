@@ -1,0 +1,12 @@
+extends layout/user-cabinet
+
+block variables
+	-var title = 'Личный кабинет'
+	-var pageClass = 'cabinet'
+
+block content
+	main(class=pageClass)
+		.container
+			.cabinet__content
+				include modules/navigation/main-nav
+				include modules/main/main-content
