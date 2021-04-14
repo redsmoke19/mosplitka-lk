@@ -5,7 +5,7 @@
   width: 32px;
   top: 16px;
   left: 15px;
-  z-index: 5;
+  z-index: 6;
   &::after {
     content: '';
     position: absolute;
@@ -24,8 +24,9 @@
     left: 31px;
     z-index: 6;
   }
-  @media screen and (min-width: $desktop-size) {
+  @media screen and (min-width: $large-size) {
     display: none;
+    pointer-events: none;
   }
   &__line {
     background-color: $text-orange-color;

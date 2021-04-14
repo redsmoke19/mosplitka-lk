@@ -20,6 +20,13 @@
     visibility: visible;
     pointer-events: all;
   }
+  @media screen and (min-width: $large-size) {
+    width: 325px;
+  }
+  @media screen and (min-width: $desktop-size) {
+    flex: 1 0 23%;
+    position: relative;
+  }
   &::before {
     content: '';
     background-color: rgba(0, 0, 0, 0.8);
@@ -30,12 +37,16 @@
     left: 0;
     opacity: 0;
     transition: opacity 0.3s ease 0s;
+    @media screen and (min-width: $large-size) {
+      display: none;
+    }
   }
-  @media screen and (min-width: $tablet-size) {
-    &::after {
+  &::after {
+    @media screen and (min-width: $tablet-size) {
       content: '';
       width: 93px;
       position: absolute;
+      pointer-events: none;
       top: 0;
       left: 0;
       height: 63px;
@@ -43,6 +54,9 @@
       z-index: 3;
       opacity: 1;
       transition: all 0s ease 0s;
+    }
+    @media screen and (min-width: $large-size) {
+      display: none;
     }
   }
   &._active {
@@ -106,6 +120,13 @@
       opacity: 1;
       width: 94px;
     }
+    @media screen and (min-width: $large-size) {
+      padding: 64px 30px;
+      width: 100%;
+    }
+    @media screen and (min-width: $desktop-size) {
+      padding: 32px 0;
+    }
   }
   &__user-name {
     align-self: stretch;
@@ -129,6 +150,15 @@
       padding-top: 32px;
       width: 100%;
     }
+    @media screen and (min-width: $large-size) {
+      border: none;
+    }
+    @media screen and (min-width: $large-size) {
+      padding-top: 24px;
+    }
+    @media screen and (min-width: $desktop-size) {
+      padding: 0;
+    }
   }
   &__item {
     display: flex;
@@ -141,6 +171,9 @@
     @media screen and (min-width: $tablet-size) {
       overflow: hidden;
     }
+    @media screen and (min-width: $desktop-size) {
+      padding-right: 15px;
+    }
   }
   &__link {
     align-items: center;
@@ -150,6 +183,9 @@
     @media screen and (min-width: $tablet-size) {
       padding-left: 20.5px;
       position: relative;
+    }
+    @media screen and (min-width: $large-size) {
+      padding: 0;
     }
     @media screen and (min-width: $desktop-size) {
       &:hover {
@@ -168,11 +204,15 @@
       flex-shrink: 0;
       margin: 0;
     }
+    @media screen and (min-width: $large-size) {
+      height: 24px;
+      width: 24px;
+    }
   }
   &__text {
     color: $text-black-color;
     font-size: 16px;
-    line-height: 16;
+    line-height: 16px;
     @media screen and (min-width: $tablet-size) {
       opacity: 0;
       visibility: hidden;
@@ -181,6 +221,14 @@
       transform: translateY(-50%);
       transition: all ease-out 0s 0s;
       left: 70px;
+    }
+    @media screen and (min-width: $large-size) {
+      opacity: 1;
+      margin: 0 0 0 12px;
+      position: relative;
+      transform: translateY(0);
+      visibility: visible;
+      left: 0;
     }
   }
 }

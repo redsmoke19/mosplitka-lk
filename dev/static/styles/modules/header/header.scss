@@ -2,7 +2,56 @@
 header {
   flex: 0 0 auto;
 }
-
+.header__wrapper {
+  background-color: $white;
+  height: 64px;
+  position: relative;
+  width: 100%;
+  z-index: 6;
+  @media screen and (min-width: $desktop-size) {
+    height: 134px;
+  }
+}
+.header-top {
+  border-bottom: 1px solid $text-light-grey-color;
+  height: 70px;
+  &__list {
+    align-items: center;
+    display: flex;
+  }
+  &__item {
+    align-items: center;
+    display: flex;
+    &:not(:last-child) {
+      margin: 0 32px 0 0;
+    }
+  }
+  &__link {
+    color: $black;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+  }
+  &__call {
+    background: linear-gradient(88.19deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #EE7656;
+    border-radius: 3px;
+    color: $white;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+  &__phone {
+    color: $black;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+  }
+}
 .header-user {
   align-items: center;
   background-color: $white;
@@ -11,8 +60,10 @@ header {
   height: 64px;
   padding: 16px 0;
   position: relative;
-  z-index: 3;
   width: 100%;
+  @media screen and (min-width: $large-size) {
+    z-index: 20;
+  }
   .container {
     @media screen and (min-width: $mobil-size) {
       padding-left: 25px;
@@ -46,4 +97,7 @@ header {
   display: none;
   height: 64px;
   width: 100%;
+  @media screen and (min-width: $desktop-size) {
+    height: 134px;
+  }
 }

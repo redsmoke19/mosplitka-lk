@@ -1,0 +1,8 @@
+.user {
+  &__content {
+    @media screen and (min-width: $desktop-size) {
+      display: flex;
+      position: relative;
+    }
+  }
+}
