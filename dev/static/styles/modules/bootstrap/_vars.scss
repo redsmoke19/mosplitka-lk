@@ -1,0 +1,50 @@
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: 100px,
+  12: 12px,
+  15: 15px,
+  20: 20px,
+  25: 25px,
+  30: 30px,
+  32: 32px,
+  40: 40px,
+  50: 50px,
+  56: 56px,
+  60: 60px,
+  65: 65px,
+  66: 66px,
+  70: 70px,
+  80: 80px,
+  85: 85px,
+  100: 100px,
+) !default;
+
+$position-values: (
+  0: 0,
+  8: 8px,
+  50: 50%,
+  100: 100%
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1000px,
+  xl: 1280px,
+  xxl: 1920px
+) !default;
+
+$container-max-widths: (
+  sm: 479px,
+  md: 767px,
+  lg: 999px,
+  xl: 1220px,
+  xxl: 1919px
+) !default;

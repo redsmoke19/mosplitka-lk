@@ -2,7 +2,7 @@
   &__picture {
     display: block;
     margin: 0 0 36px 0;
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       opacity: 0;
       margin: 0 0 16px 0;
       transition: all 0.2s ease 0s;
@@ -16,7 +16,7 @@
   }
   &__title {
     display: none;
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       display: block;
       font-size: 20px;
       line-height: 24px;
@@ -40,7 +40,7 @@
       position: absolute;
       width: 100%;
     }
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
       margin: 0 0 24px 0;
     }
   }
@@ -56,14 +56,14 @@
     &:not(:last-child) {
       margin: 0 32px 0 0;
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       font-size: 14px;
       line-height: 16px;
       &:not(:last-child) {
         margin: 0 24px 0 0;
       }
     }
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: $desktop-size) {
       cursor: pointer;
       &:hover {
         color: rgba($text-grey-color, 0.7);
@@ -82,7 +82,7 @@
         width: 100%;
         z-index: 1;
       }
-      @media screen and (min-width: $desktop) {
+      @media screen and (min-width: $desktop-size) {
         cursor: pointer;
         &:hover {
           color: rgba($text-orange-color, 0.7);
@@ -126,7 +126,7 @@
       position: absolute;
       width: 100%;
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       margin: 0 0 24px 0;
       padding-bottom: 23px;
     }
@@ -152,12 +152,12 @@
     &._error .login-tabs__input {
       border-color: $text-orange-color;
     }
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
       &:not(:last-of-type) {
         margin: 0 0 24px 0;
       }
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       &:not(:last-of-type) {
         margin: 0 0 16px 0;
       }
@@ -168,7 +168,7 @@
     font-size: 18px;
     line-height: 18px;
     margin: 0 0 12px 0;
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       font-size: 14px;
       line-height: 16px;
       margin: 0 0 8px 0;
@@ -196,7 +196,7 @@
     margin: 0 0 8px 0;
     padding: 16px;
     transition: all ease-out 0.15s;
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: $desktop-size) {
       cursor: pointer;
       &:hover {
         background-color: rgba($text-grey-color, 0.45);
@@ -205,7 +205,7 @@
     &._active {
       background-color: $text-orange-color;
       color: white;
-      @media screen and (min-width: $desktop) {
+      @media screen and (min-width: $desktop-size) {
         &:hover {
           background-color: $text-orange-color;
           opacity: 0.7;
@@ -220,16 +220,16 @@
     text-align: center;
     a {
       color: $text-orange-color;
-      @media screen and (min-width: $desktop) {
+      @media screen and (min-width: $desktop-size) {
         &:hover {
           opacity: 0.7;
         }
       }
     }
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
       padding: 0 75px;
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       padding: 0;
     }
   }

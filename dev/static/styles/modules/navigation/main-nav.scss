@@ -12,6 +12,14 @@
   z-index: 2;
   visibility: hidden;
   -webkit-overflow-scrolling: touch;
+  @media screen and (min-width: $tablet-size) {
+    background-color: transparent;
+    z-index: 5;
+    width: 94px;
+    transform: translate(0, 0);
+    visibility: visible;
+    pointer-events: all;
+  }
   &::before {
     content: '';
     background-color: rgba(0, 0, 0, 0.8);
@@ -23,17 +31,54 @@
     opacity: 0;
     transition: opacity 0.3s ease 0s;
   }
+  @media screen and (min-width: $tablet-size) {
+    &::after {
+      content: '';
+      width: 93px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 63px;
+      background-color: $white;
+      z-index: 3;
+      opacity: 1;
+      transition: all 0s ease 0s;
+    }
+  }
   &._active {
     overflow: auto;
     pointer-events: all;
     transform: translate(0, 0);
     visibility: visible;
+    @media screen and (min-width: $tablet-size) {
+      width: 100%;
+    }
     &::before {
-      opacity: 1;
+      @media screen and (min-width: $tablet-size) {
+        opacity: 1;
+      }
+    }
+    &::after {
+      @media screen and (min-width: $tablet-size) {
+        transition: all 0.3s ease 0.7s;
+        opacity: 1;
+        width: 48%;
+      }
     }
     .nav__container {
-      transition: all 0.3s ease 0.4s;
-      opacity: 1;
+        transition: all 0.3s ease 0s;
+        opacity: 1;
+      @media screen and (min-width: $tablet-size) {
+        transition: all 0.3s ease 0.4s;
+        width: 48%;
+      }
+    }
+    .nav__text {
+      @media screen and (min-width: $tablet-size) {
+        opacity: 1;
+        transition: all 0.15s ease 0.6s;
+        visibility: visible;
+      }
     }
   }
   &__container {
@@ -50,13 +95,16 @@
     opacity: 0;
     width: 100%;
     z-index: 3;
-    @media screen and (min-width: $mobil) {
-      padding: 64px 30px;
+    @media screen and (min-width: $mobil-size) {
+      padding: 64px 13px;
     }
-    @media screen and (min-width: $tablet) {
-      height: 100vh;
+    @media screen and (min-width: $tablet-size) {
+      border-right: 1px solid $bg-grey-color;
+      flex: 0 1 auto;
+      height: calc(var(--vh) * 100);
       overflow: auto;
-      width: 48%;
+      opacity: 1;
+      width: 94px;
     }
   }
   &__user-name {
@@ -68,7 +116,7 @@
     line-height: 16px;
     margin-bottom: 24px;
     padding: 24px 0;
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
       align-self: center;
       border-bottom: none;
       margin: 0 32px 0 0;
@@ -76,8 +124,10 @@
     }
   }
   &__list {
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
+      border-top: 1px solid $bg-grey-color;
       padding-top: 32px;
+      width: 100%;
     }
   }
   &__item {
@@ -88,13 +138,20 @@
     &:last-child {
       margin: 0;
     }
+    @media screen and (min-width: $tablet-size) {
+      overflow: hidden;
+    }
   }
   &__link {
     align-items: center;
     color: $text-black-color;
     display: flex;
     text-decoration: none;
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: $tablet-size) {
+      padding-left: 20.5px;
+      position: relative;
+    }
+    @media screen and (min-width: $desktop-size) {
       &:hover {
         color: rgba($text-black-color, 0.7);
         svg {
@@ -107,5 +164,23 @@
     fill: $text-grey-color;
     margin: 0 20px 0 0;
     transition: all ease-out 0.15s;
+    @media screen and (min-width: $tablet-size) {
+      flex-shrink: 0;
+      margin: 0;
+    }
+  }
+  &__text {
+    color: $text-black-color;
+    font-size: 16px;
+    line-height: 16;
+    @media screen and (min-width: $tablet-size) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all ease-out 0s 0s;
+      left: 70px;
+    }
   }
 }

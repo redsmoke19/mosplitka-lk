@@ -1,18 +1,20 @@
-@import "utils/libs";
-@import "utils/vars";
-@import "utils/mixins";
-@import "utils/fonts";
-@import "utils/sprite";
-//@include sprites($spritesheet-sprites);
+@import 'utils/libs';
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/sprite';
+@import './modules/bootstrap/bootstrap.scss';
 
 html {
   font-family: $main-font;
   font-size: 16px;
   font-weight: 400;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: $main-font;
   height: 100%;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -74,12 +76,12 @@ a {
 
 .content { flex: 1 0 auto; }
 
-.container {
+.custom-container {
   margin: 0 auto;
   max-width: $content;
   padding: 0 15px;
   width: 100%;
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $desktop-size) {
     padding: 0 50px;
   }
 }

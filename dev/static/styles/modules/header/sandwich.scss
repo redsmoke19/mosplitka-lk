@@ -1,11 +1,11 @@
 .sandwich {
   cursor: pointer;
   height: 32px;
-  position: relative;
+  position: fixed;
   width: 32px;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  top: 16px;
+  left: 15px;
+  z-index: 5;
   &::after {
     content: '';
     position: absolute;
@@ -14,8 +14,17 @@
     background-color: $bg-grey-color;
     right: -16px;
     top: calc(50% - 20px);
+    @media screen and (min-width: $tablet-size) {
+      // transition: all ease-out 0s 0.2s;
+      // right: -24px;
+      display: none;
+    }
   }
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $tablet-size) {
+    left: 31px;
+    z-index: 6;
+  }
+  @media screen and (min-width: $desktop-size) {
     display: none;
   }
   &__line {
@@ -33,7 +42,12 @@
     &--bottom { transform: translate(-50%, calc(-50% + 6px)); }
   }
   &._active {
-    position: relative;
+    @media screen and (min-width: $tablet-size) {
+      &::after {
+        opacity: 0;
+        transition: all ease-out 0s 0.1s;
+      }
+    }
     .sandwich__line {
       &--middle {
         background-color: transparent;

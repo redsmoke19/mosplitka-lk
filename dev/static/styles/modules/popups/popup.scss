@@ -41,7 +41,7 @@
       transform: scale(1);
     }
     .login-form__picture {
-      @media screen and (min-width: $tablet) {
+      @media screen and (min-width: $tablet-size) {
         opacity: 1;
         transition: all 0.3s ease 0.6s;
       }
@@ -58,7 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       padding: 50px 0;
     }
   }
@@ -70,10 +70,10 @@
     padding: 25px 15px 60px;
     position: relative;
     width: 100%;
-    @media screen and (min-width: $mobil) {
+    @media screen and (min-width: $mobil-size) {
       padding: 25px 15px 50px;
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       border: 1px solid $border-grey-color;
       border-radius: 6px;
       padding: 34px 32px 32px;
@@ -97,7 +97,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
     }
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: $tablet-size) {
       fill: $white;
       height: 24px;
       right: -32px;
@@ -108,7 +108,7 @@
         width: 14px;
       }
     }
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: $desktop-size) {
       background-color: transparent;
       border-radius: 6x;
       height: 32px;
