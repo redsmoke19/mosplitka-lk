@@ -2,7 +2,7 @@ extends layout/user-cabinet
 
 block variables
 	-var title = 'Личный кабинет'
-	-var pageClass = 'user-main'
+	-var pageClass = 'user-object'
 
 block content
 	main(class=pageClass)
@@ -10,4 +10,4 @@ block content
 			.user__content
 				include modules/header/sandwich/sandwich-nav
 				include modules/navigation/main-nav
-				include modules/main/main-content
+				include pages/object-page/object

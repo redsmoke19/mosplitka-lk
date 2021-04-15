@@ -1,0 +1,14 @@
+.object {
+  @media screen and (min-width: $tablet-size) {
+    border: 1px solid $border-grey-color;
+    border-radius: 6px;
+    flex: 0 0 86.8%;
+    margin-left: auto;
+    padding: 0 90px;
+  }
+  @media screen and (min-width: $large-size) {
+    flex-basis: 66%;
+  }
+}
+@import './header';
+@import './stage';

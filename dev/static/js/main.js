@@ -268,9 +268,6 @@
       });
     }
   };
-  document.addEventListener('click', e => {
-    console.log(e.target);
-  });
   const getActionPopupLink = () => {};
 
   const getLoginTabs = () => {
@@ -387,6 +384,15 @@
       }
     });
   };
+  const getSelects = () => {
+    const selectItems = document.querySelectorAll('.js-select');
+    selectItems.forEach(item => {
+      new Choices(item, {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+    })
+  }
   dynamicAdaptive();
   getPageVh();
   getFixedHeader();
@@ -395,4 +401,5 @@
   getLoginTabs();
   getPopup();
   getResizePage();
+  getSelects();
 })();

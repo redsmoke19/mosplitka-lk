@@ -1,6 +1,6 @@
 .user {
   &__content {
-    @media screen and (min-width: $desktop-size) {
+    @media screen and (min-width: $tablet-size) {
       display: flex;
       position: relative;
     }

@@ -1,0 +1,18 @@
+.object-header {
+  margin: 0 0 32px 0;
+  @media screen and (min-width: $tablet-size) {
+    margin: 0 -90px 32px -90px;
+  }
+  &__progress {
+    background-color: $border-grey-color;
+    border-radius: 6px;
+    height: 12px;
+    width: 100%;
+    @media screen and (min-width: $tablet-size) {
+      border-radius: 6px 6px 0 0;
+    }
+    .progress-bar {
+      background-color: $text-orange-color;
+    }
+  }
+}

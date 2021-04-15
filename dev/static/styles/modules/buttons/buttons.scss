@@ -1,0 +1,14 @@
+.button {
+  align-items: center;
+  background-color: $text-orange-color;
+  border: none;
+  border-radius: 6px;
+  color: $white;
+  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 16px;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+}
