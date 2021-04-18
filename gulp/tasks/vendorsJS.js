@@ -5,6 +5,9 @@ const vendorsScripts = [
   'node_modules/svg4everybody/dist/svg4everybody.min.js',
   'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
   'node_modules/choices.js/public/assets/scripts/choices.min.js',
+  // 'node_modules/dropzone/dist/min/dropzone.min.js',
+  'node_modules/dropzone/dist/dropzone.js',
+  'node_modules/js-datepicker/dist/datepicker.min.js'
 ];
 
 module.exports = function vendors(cb) {

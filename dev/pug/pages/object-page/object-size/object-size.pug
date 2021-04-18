@@ -1,21 +1,21 @@
 .object__stage.object-stage
-	include header-data
+	include header-size
 	.object-stage__body
-		h2.object-stage__title.col-md-10 Заполнение данных по объекту
-		p.object-stage__text.col-md-8 Пожалуйста ответтье на эти вопросы, что бы мы смогли подобрать для вас необходимые решения.
+		h2.object-stage__title.col-md-10 Согласование замера
+		p.object-stage__text.col-md-8 Выберите, пожалуйста, удобную дату и время для проведения замера.
+		p.object-stage__text.text-danger.col-md-8.m-0 #[strong Обращаем ваше внимание!]
+		p.object-stage__text.col-md-8 #[strong Замер у нас в компании платный]
+		p.object-stage__text.col-md-8.m-0 #[strong 1500 &#8381;] в Москве
+		p.object-stage__text.col-md-8.m-0 #[strong от 2500 &#8381;] по Московской области
+		p.object-stage__text.object-stage__text--note.col-md-8 в зависимости от расстояния
+		p.object-stage__text.col-md-8 Эта сумма зачисляется вам на счет и расходуется на оплату ремонтных работ. После замера вы получите подробный сметный расчет.
 		.col-12
 			.object-stage__border
 		.row.mb-48
 			.col-12
-				label.object-stage__label(for="objectTypeOfWork") Вид работ
+				label.object-stage__label Дата замера
 			.col-12
-				select(data-trigger id="objectTypeOfWork")
-					option(value="") Выберите тип
-					option(value="Ремонт квартир и домов") Ремонт квартир и домов
-					option(value="Ремонт санузлов") Ремонт санузлов
-					option(value="Профессиональная укладка плитки") Профессиональная укладка плитки
-					option(value="Укладка плит большого формата") Укладка плит большого формата (от 1 600 мм)
-					option(value="Нежилое помещение") Нежилое помещение / офис
+				.object-stage__data(id="objectDateSize")
 			.col-12.object-stage__hidden.mt-25
 				.row
 					.col-6

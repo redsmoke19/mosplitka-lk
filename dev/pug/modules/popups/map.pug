@@ -1,0 +1,22 @@
+.popup.popup_map
+	.popup__content
+		.popup__body.popup__body--map
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture.popup__picture--map(data-da=".popup__content, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			h2.popup__title.mb-25 Укажите адрес
+			.row.map-popup__top
+				.col-12.col-md-8.mb-25.mb-md-25
+					label.object-stage__label(for="objectPopupMap") Адрес объекта
+					input.object-stage__input(type="text" id="objectPopupMap" placeholder="Адрес")
+				.col-12.mb-25.mb-md-0
+					.map-popup__container
+						.map-popup__map#map
+				.col-12.mb-25(data-da=".map-popup__top, 768, 2")
+					.object-stage__border.mb-0
+				.col-12.col-md-4.mb-70.mb-md-25.align-self-md-end(data-da=".map-popup__top, 768, 1")
+					button.button.button--disabled.py-md-14 Подтвердить
+
+

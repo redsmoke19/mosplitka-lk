@@ -11,4 +11,9 @@
   justify-content: center;
   padding: 16px;
   width: 100%;
+  &--disabled {
+    background-color: $button-disabled-color;
+    color: $text-grey-color;
+    font-weight: 400;
+  }
 }

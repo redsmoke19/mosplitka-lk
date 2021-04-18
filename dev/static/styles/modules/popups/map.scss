@@ -1,0 +1,20 @@
+.map-popup {
+  &__container {
+    border: 1px solid $border-grey-color;
+    border-radius: 6px;
+    height: 350px;
+    overflow: hidden;
+    width: 100%;
+    @media screen and (min-width: $mobil-size) {
+      height: 545px;
+    }
+  }
+  &__map {
+    height: 350px;
+    width: 100%;
+    @media screen and (min-width: $mobil-size) {
+      height: 545px;
+      width: auto;
+    }
+  }
+}

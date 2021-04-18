@@ -390,9 +390,109 @@
       new Choices(item, {
         searchEnabled: false,
         itemSelectText: '',
+        shouldSort: false,
       });
-    })
-  }
+    });
+
+    const typeOfWork = document.querySelector('#objectTypeOfWork');
+    const typeOfWorkSelect = new Choices(typeOfWork, {
+      searchEnabled: false,
+      itemSelectText: '',
+      shouldSort: false,
+    });
+    typeOfWork.addEventListener(
+      'addItem',
+      function (event) {
+        const hiddenElement = document.querySelector('.object-stage__hidden');
+        if (hiddenElement) {
+          hiddenElement.classList.add('_active');
+        }
+      },
+      false
+    );
+  };
+  const getUploadFiles = () => {
+    Dropzone.autoDiscover = false;
+    const btiFile = document.querySelector('._js-bti-file');
+    const BtiUpload = new Dropzone(btiFile, {
+      url: 'http://httpbin.org/anything',
+    });
+    BtiUpload.on('addedfile', file => {
+      btiFile.classList.add('_file-load');
+    });
+  };
+  const getPopupMap = () => {
+    ymaps.ready(function () {
+      const map = new ymaps.Map('map', {
+        center: [55.76, 37.64],
+        zoom: 10,
+        controls: [],
+      });
+      const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+      );
+      const myPlacemark = new ymaps.Placemark(
+        map.getCenter(),
+        {
+          hintContent: 'Офис Intergator.Digital',
+        },
+        {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: 'default#image',
+          // Своё изображение иконки метки.
+          iconImageHref: './static/images/content/map_marker.svg',
+          // Размеры метки.
+          iconImageSize: [32, 32],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [-5, -38],
+        }
+      );
+      map.geoObjects.add(myPlacemark);
+    });
+  };
+  const getDatePicker = () => {
+    const objectDateSize = document.querySelector(
+      '#objectDateSize'
+    );
+    const customDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+    const customMonth = [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ];
+
+    if (objectDateSize) {
+      const objectDateSizeCalendar = datepicker(objectDateSize, {
+        formatter: (input, date, instance) => {
+          input.value = 'c ' + date.toLocaleDateString();
+        },
+        disabledDates: [
+          new Date(2021, 3, 5),
+          // new Date(2099, 0, 6),
+          // new Date(2099, 0, 7),
+        ],
+        alwaysShow: true,
+        showAllDates: true,
+        startDay: 1,
+        customDays: customDays,
+        customMonths: customMonth,
+        overlayButton: 'Выбрать',
+        overlayPlaceholder: 'Введите год',
+        dateSelected: new Date(),
+      });
+    }
+  };
   dynamicAdaptive();
   getPageVh();
   getFixedHeader();
@@ -402,4 +502,7 @@
   getPopup();
   getResizePage();
   getSelects();
+  getUploadFiles();
+  getPopupMap();
+  getDatePicker();
 })();

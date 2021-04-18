@@ -1,5 +1,22 @@
 .object-stage {
   color: $text-black-color;
+  @media screen and (min-width: $tablet-size) {
+    border: 1px solid $border-grey-color;
+    border-radius: 6px;
+  }
+  @media screen and (min-width: $desktop-size) {
+    border: none;
+  }
+  &__body {
+    @media screen and (min-width: $tablet-size) {
+      padding: 0 90px;
+    }
+    @media screen and (min-width: $desktop-size) {
+      border: 1px solid $border-grey-color;
+      border-radius: 6px;
+      padding: 40px 200px 0;
+    }
+  }
   &__title {
     font-size: 20px;
     font-weight: 600;
@@ -7,17 +24,24 @@
     margin: 0 0 16px 0;
   }
   &__text {
-    border-bottom: 1px solid $bg-grey-color;
     font-size: 15px;
     line-height: 20px;
-    margin: 0 0 24px 0;
-    padding-bottom: 23px;
+    margin: 0 0 30px 0;
+    &--note {
+      color: $text-grey-color;
+      font-size: 13px;
+      line-height: 20px;
+    }
   }
   &__label {
     color: $text-grey-color;
     font-size: 18px;
     line-height: 18px;
     margin: 0 0 12px 0;
+    @media screen and (min-width: $tablet-size) {
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
   &__legend {
     font-size: 18px;
@@ -52,5 +76,19 @@
     text-decoration: none;
     top: 50%;
     transform: translateY(-50%);
+  }
+  &__border {
+    background-color: $border-grey-color;
+    height: 1px;
+    margin: 0 0 30px 0;
+    width: 100%;
+  }
+  &__hidden {
+    animation: fadeIn 1s;
+    display: none;
+    &._active {
+      display: block;
+      animation: fadeIn 1s;
+    }
   }
 }

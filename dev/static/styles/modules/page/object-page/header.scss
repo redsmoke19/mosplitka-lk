@@ -1,7 +1,10 @@
 .object-header {
   margin: 0 0 32px 0;
-  @media screen and (min-width: $tablet-size) {
-    margin: 0 -90px 32px -90px;
+  @media screen and (min-width: $desktop-size) {
+    border: 1px solid $border-grey-color;
+    border-radius: 6px;
+    margin: 0 0 15px 0;
+    position: relative;
   }
   &__progress {
     background-color: $border-grey-color;
@@ -11,8 +14,35 @@
     @media screen and (min-width: $tablet-size) {
       border-radius: 6px 6px 0 0;
     }
+    @media screen and (min-width: $desktop-size) {
+      background: repeating-linear-gradient(
+        30deg,
+        $white,
+        $white 10px,
+        $bg-grey-color 10px,
+        $bg-grey-color 20px);
+      height: 16px;
+    }
     .progress-bar {
       background-color: $text-orange-color;
     }
+  }
+  &__description {
+    @media screen and (min-width: $desktop-size) {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 20px 32px;
+    }
+  }
+  &__status {
+    display: block;
+    color: $icon-grey-color;
+    font-size: 14px;
+    line-height: 14px;
+    padding-right: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    text-align: right;
   }
 }

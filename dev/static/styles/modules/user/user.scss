@@ -2,7 +2,14 @@
   &__content {
     @media screen and (min-width: $tablet-size) {
       display: flex;
+      padding-left: 98px;
       position: relative;
+    }
+    @media screen and (min-width: $large-size) {
+      padding-left: 330px;
+    }
+    @media screen and (min-width: $desktop-size) {
+      padding: 0;
     }
   }
 }

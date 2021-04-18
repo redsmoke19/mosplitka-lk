@@ -8,6 +8,7 @@ $spacers: (
   5: $spacer * 3,
   6: 100px,
   12: 12px,
+  14: 14px,
   15: 15px,
   16: 16px,
   20: 20px,
@@ -52,3 +53,6 @@ $container-max-widths: (
   xl: 1220px,
   xxl: 1221px
 ) !default;
+
+// Color
+$red: #ee7656;

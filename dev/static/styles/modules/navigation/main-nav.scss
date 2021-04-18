@@ -24,8 +24,8 @@
     width: 325px;
   }
   @media screen and (min-width: $desktop-size) {
-    // flex: 1 0 23%;
     flex: 0 0 270px;
+    height: auto;
     position: relative;
   }
   &::before {
