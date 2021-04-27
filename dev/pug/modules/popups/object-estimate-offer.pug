@@ -1,0 +1,15 @@
+.popup.popup_estimate-offer
+	.popup__content.popup__content--estimate-offer
+		.popup__body.popup__body--small-width
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture(data-da=".popup__content--estimate-offer, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row
+				h2.popup__title.mb-16 Спасибо
+				p.popup__text.mb-25 Спасибо. Нам нужен один рабочий день, чтобы подготовить вам договор. Мы оповестим вас, когда он будет готов.
+				.col-12
+					.object-stage__border
+				.col-12
+					button.button._js-slider-object--next._popup-close Хорошо

@@ -1,4 +1,4 @@
-.object__stage.object-stage
+.object__stage.object-stage.swiper-slide
 	include header-size
 	.object-stage__body
 		h2.object-stage__title.col-md-10 Согласование замера
@@ -8,95 +8,43 @@
 		p.object-stage__text.col-md-8.m-0 #[strong 1500 &#8381;] в Москве
 		p.object-stage__text.col-md-8.m-0 #[strong от 2500 &#8381;] по Московской области
 		p.object-stage__text.object-stage__text--note.col-md-8 в зависимости от расстояния
-		p.object-stage__text.col-md-8 Эта сумма зачисляется вам на счет и расходуется на оплату ремонтных работ. После замера вы получите подробный сметный расчет.
+		p.object-stage__text.col-md-8.mb-md-24 Эта сумма зачисляется вам на счет и расходуется на оплату ремонтных работ. После замера вы получите подробный сметный расчет.
 		.col-12
-			.object-stage__border
-		.row.mb-48
-			.col-12
-				label.object-stage__label Дата замера
-			.col-12
-				.object-stage__data(id="objectDateSize")
-			.col-12.object-stage__hidden.mt-25
-				.row
-					.col-6
-						label.object-stage__label(for="objectSquare") Площадь, м2
-						input.object-stage__input(type="text" id="objectSquare" placeholder="")
-					.col-6
-						label.object-stage__label(for="objectWC") Количество санузлов
-						input.object-stage__input(type="text" id="objectWC" placeholder="")
+			.object-stage__border.mb-md-24
 		.row
 			.col-12
-				h3.object-stage__legend Жалаемая дата начала работ
+				label.object-stage__label--black Дата замера
 			.col-12
-				.row.mb-sm-25
-					.col-12.col-sm-4.mb-30.mb-sm-0
-						label.object-stage__label(for="objectDayOfWork") День
-						input.object-stage__input(type="text" id="objectDayOfWork" placeholder="День")
-					.col-12.col-sm-4.mb-30.mb-sm-0
-						label.object-stage__label(for="objectMounthOfWork") Месяц
-						select.js-select(data-trigger placeholder="This is a search placeholder" id="objectMounthOfWork")
-							option(value="Январь") Январь
-							option(value="Февраль") Февраль
-							option(value="Март") Март
-							option(value="Апрель") Апрель
-							option(value="Май") Май
-							option(value="Июнь") Июнь
-							option(value="Июль") Июль
-							option(value="Август") Август
-							option(value="Сентябрь") Сентябрь
-							option(value="Октябрь") Октябрь
-							option(value="Ноябрь") Ноябрь
-							option(value="Декабрь") Декабрь
-					.col-12.col-sm-4.mb-30.mb-sm-0
-						label.object-stage__label(for="objectYearOfWork") Год
-						input.object-stage__input(type="text" id="objectYearOfWork" placeholder="2021")
-			.col-12
-				.row
-					.col-12.mb-30.mb-sm-25
-						label.object-stage__label(for="objectAddressOfWork") Адрес объекта
-						.object-stage__input-box
-							input.object-stage__input.pe-130(type="text" id="objectAddressOfWork" placeholder="Адрес")
-							a(href="#map")._popup-link.object-stage__input-link Показать на карте
-					.col-12.col-sm-4.mb-30.mb-sm-25
-						label.object-stage__label(for="objectEntranceOfWork") Подъезд
-						input.object-stage__input(type="text" id="objectEntranceOfWork" placeholder="")
-					.col-12.col-sm-4.mb-30.mb-sm-25
-						label.object-stage__label(for="objectFloorOfWork") Этаж
-						input.object-stage__input(type="text" id="objectFloorOfWork" placeholder="")
-					.col-12.col-sm-4.mb-30.mb-sm-25
-						label.object-stage__label(for="objectIntercomOfWork") Домофон
-						input.object-stage__input(type="text" id="objectIntercomOfWork" placeholder="")
-			.col-12.mb-30.mb-sm-25
-				label.object-stage__label(for="objectElevatorOfWork") Есть ли лифт?
-				select.js-select(data-trigger id="objectElevatorOfWork")
-					option(value="Да") Да
-					option(value="Нет") Нет
-			.col-12.mb-30.mb-sm-25
-				label.object-stage__label(for="objectAccessInObject") Доступ на объект
-				select.js-select(data-trigger id="objectAccessInObject")
-					option(value="Свободный") Свободный
-					option(value="По пропускам") По пропускам
-					option(value="По звонку") По звонку
-			.col-12.mb-30.mb-sm-25
-				label.object-stage__label(for="objectDisignObject") У вас есть дизайн-проект?
-				select.js-select(data-trigger id="objectDisignObject")
-					option(value="Нет") Нет
-					option(value="Да") Да
-			.col-12.mb-30.mb-sm-25
-				label.object-stage__label(for="objectPlanBTIObject") У вас есть план БТИ или поэтажный план?
-				select.js-select(data-trigger id="objectPlanBTIObject")
-					option(value="Да") Да
-					option(value="Нет") Нет
-			.col-12.mb-30.mb-sm-25.d-md-flex.align-items-md-center
-				label.object-stage__label.col-md-8.mb-md-0 Пожалуйтса добавте его во вложение
-				.dropzone.dropzone--mobile.object-stage__dropzone.file-upload._js-bti-file.col-md-4
-					.dz-message.file-upload__message
-						button.file-upload__button
-							+icon('icon-attachment', 'file-upload__icon file-upload__icon--dowload d-none d-md-block', '24', '24')
-							+icon('icon-upload', 'file-upload__icon file-upload__icon--dowload d-md-none', '24', '24')
-							span.d-md-none Загрузить файл
-							span.d-none.d-md-block Прикрепить файл
-			.col-12
-				.object-stage__border
-			.col-12.col-md-6.mb-45.ms-md-auto
-					button.button Далее
+				.object-stage__date(id="objectDateSize")
+			.col-12._js-chose-date.mt-32.mt-md-24.object-stage__hidden
+				.row.mb-md-0.gx-1
+					.col-12
+						.object-stage__border.mb-32.mb-md-24
+					.col-12
+						label.object-stage__label--black(for="objectSquare") Время замера
+					.col-12.col-sm-4.mb-12.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize9-12" autocomplete="off" checked)
+						label.btn.btn-info.object-stage__choose-time(for="timeSize9-12") 9:00 - 12:00
+					.col-12.col-sm-4.mb-12.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize13-16" autocomplete="off")
+						label.btn.btn-info.object-stage__choose-time(for="timeSize13-16") 13:00 - 16:00
+					.col-12.col-sm-4.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize17-20" autocomplete="off")
+						label.btn.btn-info.object-stage__choose-time(for="timeSize17-20") 17:00 - 20:00
+					.col-12
+						.object-stage__border.mb-32.mb-md-24
+					.col-12
+						p.object-stage__text.object-stage__text--big.mb-md-24 Замер будет проходить по адресу:
+						.object-stage__input-box.object-stage__input-box--fade
+							input.object-stage__input._js-change-input-address-input.mb-25.mb-md-12(type="text" id="objectAddressOfWorkConfirm" placeholder="" readonly="true")
+						button.object-stage__change-button._js-change-input-address-button.mb-32.ms-auto
+							+icon('icon-change', 'object-stage__icon object-stage__icon--change', '32', '32')
+							span Изменить
+					.col-12
+						.object-stage__border
+					.col-12
+						.row
+							.col-12.col-md-6.mb-12.order-md-2
+								a(href="#measurement-assigned").button._popup-link Заказать замер
+							.col-12.col-md-6
+								p.object-stage__text.text-center.text-md-start.text-secondary.mb-0.fz-12 Нажимая кнопку «Заказать замер» вы соглашаетесь на оплату стоимости замера.

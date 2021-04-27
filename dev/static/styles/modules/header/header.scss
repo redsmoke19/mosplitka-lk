@@ -30,7 +30,13 @@ header {
     color: $black;
     font-size: 14px;
     line-height: 16px;
+    transition: all ease-out 0.2s;
     text-decoration: none;
+    @media screen and (min-width: $desktop-size) {
+      &:hover {
+        color: $text-orange-color;
+      }
+    }
   }
   &__call {
     background: linear-gradient(88.19deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #EE7656;
@@ -43,6 +49,10 @@ header {
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
+    transition: all ease-out 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   &__phone {
     color: $black;
@@ -50,6 +60,10 @@ header {
     font-size: 14px;
     line-height: 16px;
     text-decoration: none;
+    transition: all ease-out 0.2s;
+    &:hover {
+      color: $text-orange-color;
+    }
   }
 }
 .header-user {

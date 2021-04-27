@@ -1,0 +1,21 @@
+.popup.popup_contract-accept
+	.popup__content.popup__contract-accept
+		.popup__body
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture(data-da=".popup__contract-accept, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row.gx-0
+				p.popup__text.mb-25 Для согласования договора вам необходимо внести предоплатув размере #[strong.text-danger 300 000] рублей.
+				.col-12.mb-24
+					input.checkbox(type="checkbox" name="contractAcceptOfferta" id="contractAcceptOfferta")
+					label.popup__text(for="contractAcceptOfferta") Подтверждаю согласие с условиями #[a(href="#") договора оферты]
+				.col-12
+					.object-stage__border
+				.col-12
+					.row.gy-2
+						.col-12
+							a(href="#contract-complete").button.button--disabled._popup-link Оплатить
+						.col-12
+							button.button.button--text._popup-close Отмена

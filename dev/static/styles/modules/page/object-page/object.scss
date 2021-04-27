@@ -1,7 +1,10 @@
 .object {
+  min-width: 0;
+  width: 100%;
   @media screen and (min-width: $desktop-size) {
     margin-left: 30px;
   }
 }
 @import './header';
 @import './stage';
+@import './object-stage-table/stage-table';

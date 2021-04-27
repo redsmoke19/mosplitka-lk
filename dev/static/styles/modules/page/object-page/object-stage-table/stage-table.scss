@@ -1,0 +1,163 @@
+.stage-table {
+  &__item {
+    &:not(:last-child) {
+      margin: 0 0 40px 0;
+      @media screen and (min-width: $tablet-size) {
+        margin: 0 0 20px 0;
+      }
+      @media screen and (min-width: $desktop-size) {
+        margin: 0 0 12px 0;
+      }
+    }
+  }
+  &__sub-item {
+    position: relative;
+    &:nth-child(odd) {
+      background-color: rgba(232, 236, 244, 0.2);
+    }
+    &:not(:last-child) {
+      margin: 0 0 40px 0;
+      @media screen and (min-width: $tablet-size) {
+        margin: 0 -90px 0 -90px;
+      }
+      @media screen and (min-width: $desktop-size) {
+        margin: 0 -100px;
+      }
+    }
+    @media screen and (min-width: $tablet-size) {
+      margin: 0 -90px;
+      padding: 12px 90px;
+    }
+    @media screen and (min-width: $desktop-size) {
+      margin: 0 -100px;
+      padding: 12px 100px;
+      transition: all ease-out 0.2s;
+      &:hover {
+        background-color: $bg-grey-color !important;
+        .stage-table__change-button {
+          display: flex;
+        }
+      }
+    }
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 24px 0;
+    @media screen and (min-width: $tablet-size) {
+      margin: 0 0 16px 0;
+    }
+    @media screen and (min-width: $desktop-size) {
+      font-size: 15px;
+      line-height: 18px;
+      margin: 0 0 5px 0;
+    }
+  }
+  &__text {
+    font-size: 18px;
+    line-height: 26px;
+    @media screen and (min-width: $desktop-size) {
+      font-size: 15px;
+      line-height: 18px;
+    }
+    &--strong {
+      font-weight: 600;
+    }
+    &--big {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    &--grey {
+      color: $text-grey-color;
+    }
+  }
+  &__change-button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    @media screen and (min-width: $desktop-size) {
+      cursor: pointer;
+      display: none;
+      height: 25px;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 25px;
+    }
+    svg {
+      fill: $text-grey-color;
+      &:hover {
+        fill: $text-orange-color;
+      }
+    }
+  }
+  &__textarea {
+    background-color: rgba(232, 236, 244, 0.2);
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 24px 0 0 0;
+    padding: 12px;
+    position: relative;
+    resize: vertical;
+    width: 100%;
+    &:focus {
+      border: 2px solid $text-orange-color;
+      outline: none;
+    }
+  }
+  &__button-add {
+    background-color: transparent;
+    border: none;
+    color: $text-orange-color;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 16px 0 0 auto;
+    padding: 0;
+    position: relative;
+    @media screen and (min-width: $desktop-size) {
+      font-size: 16px;
+    }
+  }
+  &__text-added {
+    background-color: $bg-grey-color;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 12px 0 0 0;
+    padding: 12px;
+    position: relative;
+    z-index: 2;
+  }
+  &__answer {
+    background-color: $white;
+    border: 1px solid $text-orange-color;
+    border-radius: 6px;
+    margin: 12px 0 0 0;
+    padding: 12px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  &__text-delete {
+    background: url("../images/common/icon-close.svg") no-repeat center;
+    background-color: transparent;
+    border: none;
+    height: 16px;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 16px;
+  }
+}

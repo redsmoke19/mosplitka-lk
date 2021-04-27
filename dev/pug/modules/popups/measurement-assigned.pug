@@ -1,0 +1,25 @@
+.popup.popup_measurement-assigned
+	.popup__content.popup__content--measurement-assigned
+		.popup__body.popup__body--map
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture.popup__picture--map(data-da=".popup__content--measurement-assigned, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row
+				h2.popup__title.mb-25 Вам назначен замер на #[span.popup__title--orange 21 янв 2021 17:00-20:00]
+				p.popup__text.mb-25 В день замера с вами свяжется наш специалист и согласует точное время. Если по каким-либо причинам вы не сможете организовать замер на согласованную дату, пожалуйста, сообщите нам заранее.
+				.col-12
+					.object-stage__border
+				.col-12.d-flex.flex-column.mb-30
+					label.object-stage__label Оповещать меня о важных событиях сообщением на:
+					input.radio(type="radio" name="meteringNotice" id="meteringNoticeEmail" checked)
+					label.radio__label.mb-12(for="meteringNoticeEmail") e-mail
+					input.radio(type="radio" name="meteringNotice" id="meteringNoticePhone")
+					label.radio__label(for="meteringNoticePhone") телефон
+				.col-12
+					.object-stage__border
+				.col-12.col-xl-5
+					button.button._js-slider-object--next._popup-close Ок
+
+

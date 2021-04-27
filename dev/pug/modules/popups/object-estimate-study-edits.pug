@@ -1,0 +1,14 @@
+.popup.popup_study-edits
+	.popup__content.popup__content--study-edits
+		.popup__body.popup__body--small-width
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture(data-da=".popup__content--study-edits, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row
+				p.popup__text.mb-25 Наш специалист изучит ваши комментарии и даст свои пояснения. Мы пришлем вам уведомление, когда коммерческое предложение будет готово для согласования.
+				.col-12
+					.object-stage__border
+				.col-12
+					button.button._js-slider-object--next._popup-close Ок

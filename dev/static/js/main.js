@@ -223,14 +223,55 @@
     const da = new DynamicAdapt('min');
     da.init();
   };
+  const getObjectSlider = () => {
+    window.objectSlider = new Swiper('._js-object-slider', {
+      direction: 'horizontal',
+      grabCursor: false,
+      preventClicks: true,
+      preventClicksPropagation: true,
+      slidesPerView: 1,
+      spaceBetween: 15,
+      slidesOffsetBefore: 0,
+      slidesOffsetAfter: 0,
+      autoHeight: true,
+      allowTouchMove: false,
+    });
+    const sliderNextButton = document.querySelectorAll('._js-slider-object--next');
+    sliderNextButton.forEach(item => {
+      item.addEventListener('click', () => {
+        window.objectSlider.slideNext(300);
+      });
+    });
+  };
+  getObjectSlider();
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   window.objectSlider.update();
+  // });
+  window.addEventListener('load', function () {
+    window.objectSlider.update();
+  });
   const getPageVh = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   };
   const getResizePage = () => {
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', resizeThrottler, false);
+
+    let resizeTimeout;
+
+    function resizeThrottler() {
+      if (!resizeTimeout) {
+        resizeTimeout = setTimeout(function () {
+          resizeTimeout = null;
+          actualResizeHandler();
+        }, 100);
+      }
+    }
+
+    function actualResizeHandler() {
       getPageVh();
-    });
+      window.objectSlider.update();
+    }
   };
   const getFixedHeader = () => {
     const header = document.querySelector('.header__wrapper');
@@ -268,8 +309,6 @@
       });
     }
   };
-  const getActionPopupLink = () => {};
-
   const getLoginTabs = () => {
     const tabsLinks = document.querySelectorAll('.login-tabs__link');
     const tabsContent = document.querySelectorAll('.login-tabs__content');
@@ -340,7 +379,7 @@
           bodyLockAdd(500);
         }
         curentPopup.classList.add('_active');
-        // history.pushState('', '', '#' + item);
+        history.pushState('', '', '#' + item);
       }
     }
     function popupClose(item, bodyUnlock = true) {
@@ -364,7 +403,7 @@
         if (!document.querySelector('.menu__body._active') && bodyUnlock) {
           bodyLockRemove(500);
         }
-        // history.pushState('', '', window.location.href.split('#')[0]);
+        history.pushState('', '', window.location.href.split('#')[0]);
       }
     }
     const popupCloseIcon = document.querySelectorAll(
@@ -386,40 +425,57 @@
   };
   const getSelects = () => {
     const selectItems = document.querySelectorAll('.js-select');
-    selectItems.forEach(item => {
-      new Choices(item, {
+    if (selectItems.length > 0) {
+      selectItems.forEach(item => {
+        new Choices(item, {
+          searchEnabled: false,
+          itemSelectText: '',
+          shouldSort: false,
+        });
+      });
+    }
+
+    const typeOfWork = document.querySelector('#objectTypeOfWork');
+    if (typeOfWork) {
+      const typeOfWorkSelect = new Choices(typeOfWork, {
         searchEnabled: false,
         itemSelectText: '',
         shouldSort: false,
       });
-    });
-
-    const typeOfWork = document.querySelector('#objectTypeOfWork');
-    const typeOfWorkSelect = new Choices(typeOfWork, {
-      searchEnabled: false,
-      itemSelectText: '',
-      shouldSort: false,
-    });
-    typeOfWork.addEventListener(
-      'addItem',
-      function (event) {
-        const hiddenElement = document.querySelector('.object-stage__hidden');
-        if (hiddenElement) {
-          hiddenElement.classList.add('_active');
-        }
-      },
-      false
-    );
+      typeOfWork.addEventListener(
+        'addItem',
+        function (event) {
+          const hiddenElement = document.querySelector('._js-objectType');
+          if (hiddenElement) {
+            hiddenElement.classList.add('_active');
+            window.objectSlider.update();
+          }
+        },
+        false
+      );
+    }
   };
   const getUploadFiles = () => {
-    Dropzone.autoDiscover = false;
     const btiFile = document.querySelector('._js-bti-file');
-    const BtiUpload = new Dropzone(btiFile, {
-      url: 'http://httpbin.org/anything',
-    });
-    BtiUpload.on('addedfile', file => {
-      btiFile.classList.add('_file-load');
-    });
+    Dropzone.autoDiscover = false;
+    if (btiFile) {
+      const BtiUpload = new Dropzone(btiFile, {
+        url: 'http://httpbin.org/anything',
+      });
+      BtiUpload.on('addedfile', file => {
+        btiFile.classList.add('_file-load');
+        window.objectSlider.update();
+      });
+    }
+    const estimateOfferPassport = document.querySelector('._js-estimate-offer');
+    if (estimateOfferPassport) {
+      const estimateOffer = new Dropzone(estimateOfferPassport, {
+        url: 'http://httpbin.org/anything',
+      });
+      estimateOffer.on('addedfile', file => {
+        window.objectSlider.update();
+      });
+    }
   };
   const getPopupMap = () => {
     ymaps.ready(function () {
@@ -453,9 +509,7 @@
     });
   };
   const getDatePicker = () => {
-    const objectDateSize = document.querySelector(
-      '#objectDateSize'
-    );
+    const objectDateSize = document.querySelector('#objectDateSize');
     const customDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
     const customMonth = [
       'Январь',
@@ -479,8 +533,10 @@
         },
         disabledDates: [
           new Date(2021, 3, 5),
-          // new Date(2099, 0, 6),
-          // new Date(2099, 0, 7),
+          new Date(2021, 3, 8),
+          new Date(2021, 3, 10),
+          new Date(2021, 3, 11),
+          new Date(2021, 3, 19),
         ],
         alwaysShow: true,
         showAllDates: true,
@@ -489,20 +545,105 @@
         customMonths: customMonth,
         overlayButton: 'Выбрать',
         overlayPlaceholder: 'Введите год',
-        dateSelected: new Date(),
+        onSelect: (instance, date) => {
+          const hiddenBlock = document.querySelector('._js-chose-date');
+          if (date !== undefined) {
+            hiddenBlock.classList.add('_active');
+            window.objectSlider.update();
+          } else {
+            hiddenBlock.classList.remove('_active');
+            window.objectSlider.update();
+          }
+        },
       });
     }
+  };
+  const getInputValueToOtherInput = () => {
+    const inputAddressOfWork = document.querySelector('#objectAddressOfWork');
+    const objectAddressOfWorkConfirm = document.querySelector('#objectAddressOfWorkConfirm');
+    if (inputAddressOfWork) {
+      inputAddressOfWork.addEventListener('blur', () => {
+        objectAddressOfWorkConfirm.value = inputAddressOfWork.value;
+      });
+    }
+  };
+  const getRemoveAttribute = () => {
+    const changeInputObjectButton = document.querySelector('._js-change-input-address-button');
+    const changeInputObjectInput = document.querySelector('._js-change-input-address-input');
+    function removettribute(item, target, attr) {
+      item.addEventListener('click', () => {
+        target.removeAttribute(attr);
+        target.focus();
+      });
+    }
+    if (changeInputObjectButton) {
+      removettribute(changeInputObjectButton, changeInputObjectInput, 'readonly');
+    }
+  };
+  const getShowHiddenTextarea = () => {
+    const stageTableItems = document.querySelectorAll('.stage-table__sub-item');
+    const showButtons = document.querySelectorAll('.stage-table__change-button');
+
+    const getEditEstimate = function (listItem, beforeNode) {
+      const textarea = listItem.querySelector('.stage-table__textarea');
+      const element = document.createElement('p');
+      const elementDeleteButton = document.createElement('button');
+      element.classList.add('stage-table__text-added');
+      elementDeleteButton.classList.add('stage-table__text-delete');
+      element.textContent = textarea.value;
+      element.append(elementDeleteButton);
+      beforeNode.before(element);
+    };
+
+    const getRemoveEditorEstimate = function (listItem) {
+      const removeButton = listItem.querySelector('.stage-table__text-delete');
+      removeButton.addEventListener('click', () => {
+        removeButton.parentElement.remove();
+        window.objectSlider.update();
+      });
+    };
+
+    showButtons.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        const hiddenElement = stageTableItems[i].querySelector('._hidden');
+        hiddenElement.classList.toggle('_active');
+        window.objectSlider.update();
+      });
+    });
+
+    stageTableItems.forEach((item, i) => {
+      const addedButton = item.querySelector('.stage-table__button-add');
+      const hiddenElement = item.querySelector('._hidden, ._active');
+      if (addedButton) {
+        addedButton.addEventListener('click', () => {
+          const addElement = item.querySelector('.stage-table__text-added');
+          const textarea = item.querySelector('.stage-table__textarea');
+          if (!textarea.value) return;
+          if (addElement) {
+            addElement.remove();
+            getEditEstimate(item, showButtons[i]);
+          } else {
+            getEditEstimate(item, showButtons[i]);
+          }
+          getRemoveEditorEstimate(item);
+          hiddenElement.classList.remove('_active');
+          window.objectSlider.update();
+        });
+      }
+    });
   };
   dynamicAdaptive();
   getPageVh();
   getFixedHeader();
   sandwichToggle();
-  getActionPopupLink();
   getLoginTabs();
   getPopup();
   getResizePage();
   getSelects();
   getUploadFiles();
-  getPopupMap();
+  // getPopupMap();
   getDatePicker();
+  getRemoveAttribute();
+  getInputValueToOtherInput();
+  getShowHiddenTextarea();
 })();

@@ -94,6 +94,12 @@
         width: 56%;
       }
     }
+    &--textarea {
+      @media screen and (min-width: $tablet-size) {
+        max-width: none;
+        width: 600px;
+      }
+    }
   }
   // .popup__close
   &__close {
@@ -172,11 +178,35 @@
         width: 56%;
       }
     }
+    &--textarea {
+      width: 600px;
+    }
   }
   &__title {
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
+    &--orange {
+      color: $text-orange-color;
+    }
+  }
+  &__text {
+    color: $text-black-color;
+    font-size: 15px;
+    line-height: 20px;
+    a {
+      color: $text-orange-color;
+      text-decoration: none;
+    }
+  }
+  &__textarea {
+    background-color: rgba(232, 236, 244, 0.2);
+    border: 1px solid $icon-grey-color;
+    border-radius: 6px;
+    height: 500px;
+    margin: 0 0 24px 0;
+    padding: 12px;
+    width: 100%;
   }
 }
 

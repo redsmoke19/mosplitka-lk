@@ -1,0 +1,8 @@
+._hidden {
+  animation: fadeOut 1s;
+  display: none;
+  &._active {
+    display: block;
+    animation: fadeIn 1s;
+  }
+}
