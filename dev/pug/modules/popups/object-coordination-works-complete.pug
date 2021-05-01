@@ -1,0 +1,19 @@
+.popup.popup_coordination-works-complete
+	.popup__content.popup__coordination-works-complete
+		.popup__body
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture(data-da=".popup__coordination-works-complete, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row.gx-0
+				h2.popup__title.mb-25 Акт выполненных работ подписан!
+				p.popup__text.mb-25 Для начала следующего этапа работ вам необходимо внести предоплатув размере #[strong.text-danger 300 000] рублей.
+				.col-12
+					.object-stage__border
+				.col-12
+					.row.gy-0
+						.col-12
+							a(href="#coordination-works-thanks").button._popup-close._popup-link Отправить
+						.col-12
+							button.button.button--text._popup-close Отмена

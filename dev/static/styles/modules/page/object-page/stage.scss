@@ -39,6 +39,14 @@
       font-size: 20px;
       line-height: 24px;
     }
+    &--medium {
+      font-size: 14px;
+      line-height: 18px;
+    }
+    &--small {
+      font-size: 12px;
+      line-height: 16px;
+    }
     a {
       color: $text-orange-color;
       text-decoration: underline;

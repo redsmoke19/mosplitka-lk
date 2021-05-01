@@ -1,0 +1,87 @@
+.stage-progress-work {
+  &__list {
+    position: relative;
+    &::before {
+      background-color: $bg-grey-color;
+      border-radius: 250px;
+      content: '';
+      // height: calc(100% - 250px);
+      height: calc(var(--height) + 35px);
+      // height: 60%;
+      left: 5px;
+      position: absolute;
+      top: 0;
+      width: 8px;
+      @media screen and (min-width: $tablet-size) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__item {
+    padding: 20px 0 0 40px;
+    position: relative;
+    @media screen and (min-width: $tablet-size) {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0 0 0;
+    }
+    &::before {
+      background-color: $bg-grey-color;
+      content: '';
+      height: 100%;
+      left: 5px;
+      position: absolute;
+      top: 0;
+      width: 8px;
+      @media screen and (min-width: $tablet-size) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &:first-child {
+      &::before {
+        border-radius: 250px 250px 0 0;
+      }
+    }
+    &:last-child {
+      &::before {
+        border-radius: 0 0 250px 250px;
+        height: 35px;
+      }
+    }
+    &::after {
+      background-color: $bg-grey-color;
+      border-radius: 50%;
+      content: '';
+      height: 18px;
+      left: 0;
+      position: absolute;
+      top: 30px;
+      transform: translateY(-50%);
+      width: 18px;
+      @media screen and (min-width: $tablet-size) {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &._in-work {
+      &::before {
+        background-color: $text-orange-color;
+        height: 30px;
+      }
+      &::after {
+        background-color: $text-orange-color;
+      }
+    }
+    &._complete {
+      &::before {
+        background-color: $text-orange-color;
+        // height: 100%;
+      }
+      &::after {
+        background-color: $text-orange-color;
+      }
+    }
+  }
+}

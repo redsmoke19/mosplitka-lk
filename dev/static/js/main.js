@@ -234,44 +234,72 @@
       slidesOffsetBefore: 0,
       slidesOffsetAfter: 0,
       autoHeight: true,
-      allowTouchMove: false,
+      // allowTouchMove: false,
     });
-    const sliderNextButton = document.querySelectorAll('._js-slider-object--next');
+    const sliderNextButton = document.querySelectorAll(
+      '._js-slider-object--next'
+    );
     sliderNextButton.forEach(item => {
       item.addEventListener('click', () => {
         window.objectSlider.slideNext(300);
       });
     });
   };
+  const getCoordinationImagesSlider = () => {
+    const breakpointDesktop = window.matchMedia('(min-width: 768px)');
+    let coordinationImagesSlider;
+
+    const breakpointChecker = function () {
+      let resizeTimeout;
+      if (!resizeTimeout) {
+        resizeTimeout = setTimeout(function () {
+          resizeTimeout = null;
+          resizeHandlerDesktop();
+        }, 100);
+      }
+
+      function resizeHandlerDesktop() {
+        if (breakpointDesktop.matches === true) {
+          if (coordinationImagesSlider !== undefined) {
+            coordinationImagesSlider.destroy(true, true);
+          }
+        } else if (breakpointDesktop.matches === false) {
+          enableSubMenu();
+        }
+      }
+    };
+
+    const enableSubMenu = function () {
+      coordinationImagesSlider = new Swiper('.coordination__images', {
+        direction: 'horizontal',
+        grabCursor: false,
+        preventClicks: true,
+        preventClicksPropagation: true,
+        slidesPerView: 1,
+        spaceBetween: 15,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+        autoHeight: true,
+        pagination: {
+          el: '.coordination-pagination',
+          type: 'bullets',
+          bulletClass: 'coordination-pagination__bullet',
+          bulletActiveClass: 'coordination-pagination__bullet--active',
+        },
+      });
+    };
+
+    breakpointDesktop.addListener(breakpointChecker);
+    breakpointChecker();
+  };
+  getCoordinationImagesSlider();
   getObjectSlider();
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   window.objectSlider.update();
-  // });
   window.addEventListener('load', function () {
     window.objectSlider.update();
   });
   const getPageVh = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  };
-  const getResizePage = () => {
-    window.addEventListener('resize', resizeThrottler, false);
-
-    let resizeTimeout;
-
-    function resizeThrottler() {
-      if (!resizeTimeout) {
-        resizeTimeout = setTimeout(function () {
-          resizeTimeout = null;
-          actualResizeHandler();
-        }, 100);
-      }
-    }
-
-    function actualResizeHandler() {
-      getPageVh();
-      window.objectSlider.update();
-    }
   };
   const getFixedHeader = () => {
     const header = document.querySelector('.header__wrapper');
@@ -560,7 +588,9 @@
   };
   const getInputValueToOtherInput = () => {
     const inputAddressOfWork = document.querySelector('#objectAddressOfWork');
-    const objectAddressOfWorkConfirm = document.querySelector('#objectAddressOfWorkConfirm');
+    const objectAddressOfWorkConfirm = document.querySelector(
+      '#objectAddressOfWorkConfirm'
+    );
     if (inputAddressOfWork) {
       inputAddressOfWork.addEventListener('blur', () => {
         objectAddressOfWorkConfirm.value = inputAddressOfWork.value;
@@ -568,8 +598,12 @@
     }
   };
   const getRemoveAttribute = () => {
-    const changeInputObjectButton = document.querySelector('._js-change-input-address-button');
-    const changeInputObjectInput = document.querySelector('._js-change-input-address-input');
+    const changeInputObjectButton = document.querySelector(
+      '._js-change-input-address-button'
+    );
+    const changeInputObjectInput = document.querySelector(
+      '._js-change-input-address-input'
+    );
     function removettribute(item, target, attr) {
       item.addEventListener('click', () => {
         target.removeAttribute(attr);
@@ -577,12 +611,18 @@
       });
     }
     if (changeInputObjectButton) {
-      removettribute(changeInputObjectButton, changeInputObjectInput, 'readonly');
+      removettribute(
+        changeInputObjectButton,
+        changeInputObjectInput,
+        'readonly'
+      );
     }
   };
   const getShowHiddenTextarea = () => {
     const stageTableItems = document.querySelectorAll('.stage-table__sub-item');
-    const showButtons = document.querySelectorAll('.stage-table__change-button');
+    const showButtons = document.querySelectorAll(
+      '.stage-table__change-button'
+    );
 
     const getEditEstimate = function (listItem, beforeNode) {
       const textarea = listItem.querySelector('.stage-table__textarea');
@@ -632,6 +672,94 @@
       }
     });
   };
+  const getObjectProgressHeight = () => {
+    const objectProgressList = document.querySelectorAll(
+      '.stage-progress-work__list'
+    );
+    if (objectProgressList.length > 0) {
+      for (let i = 0; i < objectProgressList.length; i++) {
+        const objectProgressItems = objectProgressList[i].querySelectorAll(
+          '.stage-progress-work__item'
+        );
+        let height = 0;
+        for (let j = 0; j < objectProgressItems.length - 1; j++) {
+          height += objectProgressItems[j].offsetHeight;
+        }
+        objectProgressList[i].style.setProperty('--height', `${height}px`);
+      }
+    }
+  };
+  const getResizePage = () => {
+    window.addEventListener('resize', resizeThrottler, false);
+
+    let resizeTimeout;
+
+    function resizeThrottler() {
+      if (!resizeTimeout) {
+        resizeTimeout = setTimeout(function () {
+          resizeTimeout = null;
+          actualResizeHandler();
+        }, 100);
+      }
+    }
+
+    function actualResizeHandler() {
+      getPageVh();
+      getObjectProgressHeight();
+      window.objectSlider.update();
+    }
+  };
+  const getCoordinationImageSeeMore = () => {
+    const photosWork = document.querySelectorAll('.photos-works');
+    if (photosWork.length > 0) {
+      photosWork.forEach(item => {
+        const photosList = item.querySelector('.photos-works__list');
+        const photoItems = item.querySelectorAll('.photos-works__item');
+        const photosCount = item.parentElement.querySelector('.photos-works__more-count');
+        const seeMoreButtons = item.querySelectorAll('._js-see-more-photos');
+        photosCount.textContent = `+${photoItems.length - 4}`;
+        seeMoreButtons.forEach(item => {
+          if (photoItems.length < 6) {
+            item.style.display = 'none';
+          } else {
+            item.addEventListener('click', () => {
+              photosList.style.height = photosList.scrollHeight + 'px';
+              seeMoreButtons.forEach(item => {
+                item.remove();
+              });
+              window.objectSlider.update();
+            });
+          }
+        });
+      });
+    }
+  };
+  const gallery = () => {
+    // const body = document.querySelector('body');
+    // const gallery = document.querySelectorAll('.lightgallery');
+    // if (gallery.length > 0) {
+    //   gallery.forEach(item => {
+    //     item.addEventListener('onBeforeOpen', (e) => {
+    //     }, false);
+    //   });
+    // }
+    lightGallery(document.querySelector('.lightgallery'), {
+      thumbnail: true,
+      hideBarsDelay: 0,
+      width: '600px',
+      height: '600px',
+      mode: 'lg-fade',
+      addClass: 'photos-works__gallery',
+      counter: false,
+      download: false,
+      startClass: '',
+      enableDrag: false,
+      speed: 500,
+      thumbWidth: 64,
+      thumbContHeight: 84,
+      zoom: false,
+    });
+  };
   dynamicAdaptive();
   getPageVh();
   getFixedHeader();
@@ -646,4 +774,7 @@
   getRemoveAttribute();
   getInputValueToOtherInput();
   getShowHiddenTextarea();
+  getObjectProgressHeight();
+  getCoordinationImageSeeMore();
+  gallery();
 })();

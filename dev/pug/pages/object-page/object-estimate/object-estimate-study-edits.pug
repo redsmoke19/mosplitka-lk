@@ -9,16 +9,8 @@ mixin object-stage-table-items(num, title, quantity, price, sum)
 				span.stage-table__text #{quantity}
 			.col-9.col-xl-2.d-flex.justify-content-end.align-items-center
 				span.stage-table__text.stage-table__text--strong #{sum} &#x20bd;
-		button.stage-table__change-button
-			span.visually-hidden Кнопка для редактирования поля
-			+icon('icon-edit-grey', 'object-stage__icon d-none d-xl-block', '16', '16')
-		.row._hidden.position-relative
-			.col-12
-				textarea.stage-table__textarea(name="stageTableTextarea")
-			.col-12
-				button.stage-table__button-add Добавить
 
-mixin object-stage-table-items-edits(num, title, quantity, price, sum)
+mixin object-stage-table-items-edits(num, title, quantity, price, sum, text)
 	li.stage-table__sub-item
 		.row.gx-1.gx-xl-3
 			.col-12.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
@@ -29,7 +21,7 @@ mixin object-stage-table-items-edits(num, title, quantity, price, sum)
 				span.stage-table__text #{quantity}
 			.col-9.col-xl-2.d-flex.justify-content-end.align-items-center
 				span.stage-table__text.stage-table__text--strong #{sum} &#x20bd;
-		p.stage-table__text-added Поменяйте пожалуйста на какую-нибудь ремонтную штуку подороже, я не доверяю таким дещевым. Давайте сделаем надёжно!
+		p.stage-table__text-added #{text}
 
 
 .object__stage.object-stage.swiper-slide
@@ -55,14 +47,14 @@ mixin object-stage-table-items-edits(num, title, quantity, price, sum)
 					h3.stage-table__title Категория 1
 					ul.stage-table__sub-list
 						+object-stage-table-items('1.', 'Ремонтныйе штуки какие-нибудь  штуки какие-нибудь', '2шт', '200 000', '400 000')
-						+object-stage-table-items-edits('2.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+						+object-stage-table-items-edits('2.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000', 'Поменяйте пожалуйста на какую-нибудь ремонтную штуку подороже, я не доверяю таким дещевым. Давайте сделаем надёжно!')
 						+object-stage-table-items('3.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
 				li.stage-table__item.stage-table__item--head
 					h3.stage-table__title Категория 2
 					ul.stage-table__sub-list
 						+object-stage-table-items('4.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
 						+object-stage-table-items('5.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-						+object-stage-table-items('6.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+						+object-stage-table-items-edits('2.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000', 'И вот тут поменяйте пожалуйста')
 				li.stage-table__item.stage-table__item--head
 					h3.stage-table__title Категория 3
 					ul.stage-table__sub-list

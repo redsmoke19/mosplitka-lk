@@ -22,6 +22,9 @@ body {
   &._lock {
 		overflow: hidden;
 	}
+  &.lg-on {
+    overflow: hidden;
+  }
 }
 
 *,

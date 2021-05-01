@@ -1,0 +1,85 @@
+.photos-works__gallery {
+  &.lg-outer {
+    .lg {
+      overflow: visible;
+    }
+    .lg-inner {
+      background-color: #303236;
+      border-radius: 6px;
+      @media screen and (min-width: $tablet-size) {
+        background: url('../images/content/logo-mobile--black.png') no-repeat 40px
+          5px;
+        background-size: 110px 24px;
+        background-color: #fff;
+        overflow: hidden;
+      }
+    }
+    .lg-toolbar {
+      background-color: transparent;
+      height: 0;
+    }
+    .lg-toolbar .lg-icon {
+      color: #fff;
+    }
+    .lg-toolbar .lg-close {
+      position: absolute;
+      font-size: 35px;
+      right: 0;
+      @media screen and (min-width: $tablet-size) {
+        right: -50px;
+      }
+    }
+    .lg-img-wrap {
+      padding: 0;
+      @media screen and (min-width: $tablet-size) {
+        padding: 40px;
+      }
+    }
+    .lg-toggle-thumb {
+      display: none;
+    }
+    .lg-thumb-outer {
+      overflow: hidden;
+      bottom: -75px;
+      background-color: #303236;
+      transform: translate(0);
+      border-radius: 6px;
+      @media screen and (min-width: $tablet-size) {
+        background-color: #fff;
+      }
+    }
+    .lg-thumb-item {
+      height: 64px;
+    }
+    .lg-image {
+      width: 100% !important;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .lg-actions .lg-next {
+      @media screen and (min-width: $tablet-size) {
+        right: -50px;
+        transition: all ease-out 0.2s;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+    .lg-actions .lg-prev {
+      @media screen and (min-width: $tablet-size) {
+        left: -50px;
+        transition: all ease-out 0.2s;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+}
+
+.lg-backdrop.in {
+  background-color: #303236;
+  @media screen and (min-width: $tablet-size) {
+    opacity: 0.9;
+  }
+}
