@@ -7,9 +7,6 @@
       background-color: #303236;
       border-radius: 6px;
       @media screen and (min-width: $tablet-size) {
-        background: url('../images/content/logo-mobile--black.png') no-repeat 40px
-          5px;
-        background-size: 110px 24px;
         background-color: #fff;
         overflow: hidden;
       }
@@ -46,9 +43,21 @@
       border-radius: 6px;
       @media screen and (min-width: $tablet-size) {
         background-color: #fff;
+        padding-top: 20px;
+        &::before {
+          content: '';
+          width: calc(100% - 80px);
+          height: 2px;
+          background-color: #E8ECF4;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+        }
       }
     }
     .lg-thumb-item {
+      border: 2px solid $text-orange-color;
       height: 64px;
     }
     .lg-image {

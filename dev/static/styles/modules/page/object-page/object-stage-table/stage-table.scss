@@ -35,7 +35,8 @@
       &:hover {
         background-color: $bg-grey-color !important;
         .stage-table__change-button {
-          display: flex;
+          // display: flex;
+          display: none;
         }
       }
     }
@@ -76,7 +77,8 @@
     align-items: center;
     background-color: transparent;
     border: none;
-    display: flex;
+    // display: flex;
+    display: none;
     justify-content: center;
     height: 100%;
     padding: 0;

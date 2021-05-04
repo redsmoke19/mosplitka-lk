@@ -1,0 +1,19 @@
+.popup.popup_estimate-edits
+	.popup__content.popup__estimate-edits
+		.popup__body.popup__body--textarea
+			.popup__close.popup__close--map
+				+icon('icon-close', 'icon-close', '24', '24')
+			picture.popup__picture.popup__picture--textarea(data-da=".popup__estimate-edits, 768, 0")
+				source(media="(min-width: 768px)", srcset="static/images/content/logo-mobile--white.png")
+				img.popup__img(src="static/images/content/logo-mobile--black.png" width="156" height="34" alt="Логотип Мосплитка")
+			.row.gx-0
+				p.popup__text.mb-25 Пожалуйста, подробно опишите причины, по которым вы не можете согласовать смету
+				textarea.popup__textarea(id="objectEstimateEdits" name="objectEstimateEdits" placeholder="Ваш комментарий")
+				.col-12
+					.object-stage__border
+				.col-12
+					.row.gy-16
+						.col-12.col-md-6.order-md-2
+							a(href="#study-edits").button._popup-close._popup-link Отправить
+						.col-12.col-md-6
+							button.button.button--transparent._popup-close Назад

@@ -24,10 +24,10 @@ mixin object-stage-table-items(num, title, quantity, price, sum)
 	.object-stage__body.px-xl-100
 		.col-12.col-xl-7.mx-xl-auto
 			h2.object-stage__title Мы подготовили для вас смету
-			p.object-stage__text Пожалуйста проверьте её, если у вас есть вопросы — вы можете оставить их прямо на таблице.
-			p.object-stage__text.d-none.d-xl-block
-				span Для этого нажмите на
-				+icon('icon-edit', 'object-stage__icon ms-xl-12', '16', '16')
+			p.object-stage__text Пожалуйста проверьте её, если у вас есть вопросы — нажмите на кнопку "Требуется пояснения"
+			//- p.object-stage__text.d-none.d-xl-block
+			//- 	span Для этого нажмите на
+			//- 	+icon('icon-edit', 'object-stage__icon ms-xl-12', '16', '16')
 			p.object-stage__text.text-danger.mb-0 #[strong Обращаем ваше внимание!]
 			p.object-stage__text При электронном подписании договора вам необходимо будет внести предоплату, указанную в соответствующем разделе сметы.
 		.col-12
@@ -76,9 +76,10 @@ mixin object-stage-table-items(num, title, quantity, price, sum)
 			.col-12
 				.row
 					.col-12.col-md-6.mb-16.mb-md-0.order-md-2
-						button.button Согласовать
+						a(href="#estimate-offer").button._popup-link Согласовать
 					.col-12.col-md-6
-						a(href="#study-edits").button.button--transparent._popup-link Требуются пояснения
+						a(href="#estimate-edits").button.button--transparent._popup-link Требуются пояснения
+						//- a(href="#study-edits")
 
 
 

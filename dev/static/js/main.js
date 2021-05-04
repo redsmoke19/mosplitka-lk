@@ -735,14 +735,6 @@
     }
   };
   const gallery = () => {
-    // const body = document.querySelector('body');
-    // const gallery = document.querySelectorAll('.lightgallery');
-    // if (gallery.length > 0) {
-    //   gallery.forEach(item => {
-    //     item.addEventListener('onBeforeOpen', (e) => {
-    //     }, false);
-    //   });
-    // }
     lightGallery(document.querySelector('.lightgallery'), {
       thumbnail: true,
       hideBarsDelay: 0,
@@ -756,7 +748,7 @@
       enableDrag: false,
       speed: 500,
       thumbWidth: 64,
-      thumbContHeight: 84,
+      thumbContHeight: 104,
       zoom: false,
     });
   };
@@ -773,7 +765,7 @@
   getDatePicker();
   getRemoveAttribute();
   getInputValueToOtherInput();
-  getShowHiddenTextarea();
+  // getShowHiddenTextarea();
   getObjectProgressHeight();
   getCoordinationImageSeeMore();
   gallery();
