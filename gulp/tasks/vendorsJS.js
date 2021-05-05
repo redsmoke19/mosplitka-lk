@@ -14,8 +14,9 @@ const vendorsScripts = [
   // 'node_modules/lightgallery/modules/lg-thumbnail.min.js',
   // 'node_modules/lightgallery/modules/lg-fullscreen.min.js',
   'node_modules/lightgallery.js/dist/js/lightgallery.min.js',
-  'node_modules/lightgallery.js/src/js/lg-thumbnail.min.js',
-  'node_modules/lightgallery.js/src/js/lg-zoom.min.js',
+  // 'node_modules/lightgallery.js/src/js/lg-thumbnail.min.js',
+  'dev/static/js/vendor/lg-thumbnail.min.js',
+  // 'node_modules/lightgallery.js/src/js/lg-zoom.min.js',
 
 ];
 

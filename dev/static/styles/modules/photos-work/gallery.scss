@@ -56,9 +56,15 @@
         }
       }
     }
+    .lg-thumb.group {
+      display: flex;
+    }
     .lg-thumb-item {
       border: 2px solid $text-orange-color;
       height: 64px;
+      &:first-child {
+        margin: 0 0 0 40px;
+      }
     }
     .lg-image {
       width: 100% !important;

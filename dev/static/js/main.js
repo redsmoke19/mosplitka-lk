@@ -598,12 +598,8 @@
     }
   };
   const getRemoveAttribute = () => {
-    const changeInputObjectButton = document.querySelector(
-      '._js-change-input-address-button'
-    );
-    const changeInputObjectInput = document.querySelector(
-      '._js-change-input-address-input'
-    );
+    const changeInputObjectButton = document.querySelector('._js-change-input-address-button');
+    const changeInputObjectInput = document.querySelector('._js-change-input-address-input');
     function removettribute(item, target, attr) {
       item.addEventListener('click', () => {
         target.removeAttribute(attr);
@@ -611,11 +607,7 @@
       });
     }
     if (changeInputObjectButton) {
-      removettribute(
-        changeInputObjectButton,
-        changeInputObjectInput,
-        'readonly'
-      );
+      removettribute(changeInputObjectButton, changeInputObjectInput, 'readonly');
     }
   };
   const getShowHiddenTextarea = () => {
@@ -738,6 +730,7 @@
     lightGallery(document.querySelector('.lightgallery'), {
       thumbnail: true,
       hideBarsDelay: 0,
+      thumbMargin: 10,
       width: '600px',
       height: '600px',
       mode: 'lg-fade',
@@ -750,6 +743,29 @@
       thumbWidth: 64,
       thumbContHeight: 104,
       zoom: false,
+    });
+  };
+  const personalEdit = () => {
+    const seePassword = document.querySelector('.personal__change-button');
+    if (seePassword) {
+      let attr = seePassword.previousSibling;
+      seePassword.addEventListener('click', () => {
+        if (attr.getAttribute('type') === 'password') {
+          attr.setAttribute('type', 'text');
+        } else {
+          attr.setAttribute('type', 'password');
+        }
+      });
+    };
+
+    const changeInputButtons = document.querySelectorAll('._js-personal-change');
+    changeInputButtons.forEach(item => {
+      item.addEventListener('click', () => {
+        let parentItem = item.parentElement;
+        let input = parentItem.querySelector('.personal__input');
+        input.removeAttribute('readonly');
+        input.focus();
+      });
     });
   };
   dynamicAdaptive();
@@ -769,4 +785,5 @@
   getObjectProgressHeight();
   getCoordinationImageSeeMore();
   gallery();
+  personalEdit();
 })();

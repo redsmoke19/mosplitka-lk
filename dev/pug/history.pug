@@ -1,0 +1,13 @@
+extends layout/user-cabinet
+
+block variables
+	-var title = 'Личный кабинет'
+	-var pageClass = 'history-object'
+
+block content
+	main(class=pageClass)
+		.container-xl.px-15.px-xl-25
+			.user__content
+				include modules/header/sandwich/sandwich-nav
+				include modules/navigation/main-nav
+				include pages/object-history/object-history

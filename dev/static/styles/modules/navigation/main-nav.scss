@@ -197,6 +197,12 @@
         }
       }
     }
+    &._active {
+      font-weight: bold;
+      .nav__icon {
+        fill: $text-orange-color;
+      }
+    }
   }
   &__icon {
     fill: $text-grey-color;

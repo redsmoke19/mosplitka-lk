@@ -1,0 +1,44 @@
+.personal {
+  &__sub-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  &__input {
+    border: none;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0;
+    width: 100%;
+  }
+  &__link {
+    color: $text-orange-color;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    @media screen and (min-width: $desktop-size) {
+      transition: all ease-out 0.15s;
+      &:hover {
+        color: $text-orange-color;
+        opacity: 0.7;
+      }
+    }
+  }
+  &__box {
+    position: relative;
+  }
+  &__change-button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    left: -35px;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+  }
+}

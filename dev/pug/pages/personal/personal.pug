@@ -1,0 +1,84 @@
+section.object.object-data.pt-25.pb-md-50
+	h1.visually-hidden Данные по объекту
+	.object__stage
+		.object-stage__body
+			.object-data__head
+				h2.object-stage__title Личные данные
+				a.object-data__back(href="#" aria-label="Вернуться назад")
+					+icon('icon-arrow-left', 'object-data__icon', '16', '14')
+			.col-12
+				.object-stage__border
+			.row
+				.col-12.mb-24
+					label.object-stage__label(for="personalName") Фамилия, Имя, Отчество*
+					input.personal__input.mb-10(type="text" name="personalName" id="personalName" value="Постиронов Андрей Константинович" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalPhone") Телефон
+					input.personal__input.mb-10(type="tel" name="personalPhone" id="personalPhone" value="+7 912 123-45-67" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalPhone") Почтовый ящик
+					input.personal__input.mb-10(type="tel" name="personalMail" id="personalMail" value="example@mail.ru" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-45
+					label.object-stage__label(for="personalPassword") Пароль
+					.personal__box.mb-10
+						input.personal__input(type="password" name="personalPassword" id="personalPassword" value="12345" readonly)
+						button.personal__change-button(type="button")
+							span.visually-hidden Изменить Пароль
+							+icon('icon-glass', 'personal__icon', '20', '14')
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					h3.personal__sub-title Паспортные данные
+				.col-12.mb-24
+					input.checkbox(type="checkbox" name="residentRussia" id="residentRussia" checked)
+					label.personal__text(for="residentRussia") Резидент РФ
+				.col-12.mb-24
+					label.object-stage__label(for="personalPassport") Серия и номер паспорта
+					input.personal__input.mb-10(type="text" name="personalPassport" id="personalPassport" value="1234 567890" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalPassportWhere") Выдан
+					input.personal__input.mb-10(type="text" name="personalPassportWhere" id="personalPassportWhere" value="г. Москва, ул. Пушкина, д. Колотушкина" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalPassportTime") Дата выдачи
+					input.personal__input.mb-10(type="text" name="personalPassportTime" id="personalPassportTime" value="25 ноя 1965" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalPassportCode") Код подразделения
+					input.personal__input.mb-10(type="text" name="personalPassportCode" id="personalPassportCode" value="123-456" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-45
+					label.object-stage__label(for="personalINN") ИНН
+					input.personal__input.mb-10(type="text" name="personalINN" id="personalINN" value="12345678-00" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					h3.personal__sub-title Адрес регитсрации
+				.col-12.mb-24
+					label.object-stage__label(for="personalCountry") Страна
+					input.personal__input.mb-10(type="text" name="personalCountry" id="personalCountry" value="Россия" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalCity") Город
+					input.personal__input.mb-10(type="text" name="personalCity" id="personalCity" value="Москва" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalStreet") Улица
+					input.personal__input.mb-10(type="text" name="personalStreet" id="personalStreet" value="ул. Пушкина" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalHouse") Дом
+					input.personal__input.mb-10(type="text" name="personalHouse" id="personalHouse" value="25" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalState") Корпус
+					input.personal__input.mb-10(type="text" name="personalState" id="personalState" value="2" readonly)
+					a.personal__link._js-personal-change Изменить
+				.col-12.mb-24
+					label.object-stage__label(for="personalFlat") Квартира
+					input.personal__input.mb-10(type="text" name="personalFlat" id="personalFlat" value="25" readonly)
+					a.personal__link._js-personal-change Изменить
+
+

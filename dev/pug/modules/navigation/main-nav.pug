@@ -7,11 +7,11 @@ nav.nav
 					+icon('icon-house', 'nav__icon', '26', '25')
 					span.nav__text Объекты
 			li.nav__item
-				a.nav__link(href="#")
+				a.nav__link(href=pageClass==='data-object' ? false : 'data.html' class=pageClass==='data-object' ? '_active' : false)
 					+icon('icon-location', 'nav__icon', '26', '26')
 					span.nav__text Данные объекта
 			li.nav__item
-				a.nav__link(href="#")
+				a.nav__link(href=pageClass==='history-object' ? false : 'history.html' class=pageClass==='history-object' ? '_active' : false)
 					+icon('icon-clock', 'nav__icon', '26', '26')
 					span.nav__text История объекта
 			li.nav__item
@@ -19,37 +19,13 @@ nav.nav
 					+icon('icon-rubl', 'nav__icon', '26', '26')
 					span.nav__text Финансы
 			li.nav__item
-				a.nav__link(href="#")
+				a.nav__link(href=pageClass==='personal-object' ? false : 'personal.html' class=pageClass==='personal-object' ? '_active' : false)
 					+icon('icon-user', 'nav__icon', '26', '26')
 					span.nav__text Личные данные
 			li.nav__item
 				a.nav__link(href="#")
 					+icon('icon-complete', 'nav__icon', '26', '26')
 					span.nav__text Ход работ
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
-			li.nav__item
-				a.nav__link(href="#")
-					+icon('icon-chat', 'nav__icon', '26', '24')
-					span.nav__text Чат
 			li.nav__item
 				a.nav__link(href="#")
 					+icon('icon-chat', 'nav__icon', '26', '24')

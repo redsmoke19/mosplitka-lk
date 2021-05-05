@@ -1,0 +1,41 @@
+.object-data {
+  &__head {
+    position: relative;
+  }
+  &__back {
+    align-items: center;
+    display: none;
+    height: 24px;
+    justify-content: center;
+    left: -30px;
+    position: absolute;
+    top: 2px;
+    width: 24px;
+    @media screen and (min-width: $tablet-size) {
+      display: flex;
+    }
+  }
+  &__text {
+    color: $text-black-color;
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+    &--big {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  &__link {
+    color: $text-orange-color;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    @media screen and (min-width: $desktop-size) {
+      transition: all ease-out 0.15s;
+      &:hover {
+        color: $text-orange-color;
+        opacity: 0.7;
+      }
+    }
+  }
+}
