@@ -1,3 +1,47 @@
-.object-history {
+.object-history-progress {
+  &__list {
+    &::before {
+      @media screen and (min-width: $tablet-size) {
+        left: 33.3%;
+      }
+    }
+  }
+  &__item {
+    &::before, &::after {
+      @media screen and (min-width: $tablet-size) {
+        left: 33.3%;
+      }
+    }
+  }
+  &__link {
+    color: $text-orange-color;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    &:hover {
+      color: $text-orange-color;
+      opacity: 0.7;
+    }
+  }
+}
 
+.object-history-photos {
+  &__list {
+    @media screen and (min-width: $tablet-size) {
+      height: 64px;
+    }
+  }
+  &__item {
+    @media screen and (min-width: $tablet-size) {
+      height: 64px !important;
+    }
+  }
+  &__item--more {
+    @media screen and (min-width: $tablet-size) {
+      height: 64px;
+    }
+  }
+  &__see-more {
+    margin: 0 0 25px 0;
+  }
 }

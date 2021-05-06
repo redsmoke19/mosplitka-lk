@@ -100,5 +100,29 @@
       text-align: center;
     }
   }
+  &__pagination {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 12px;
+    margin: 30px 0;
+    @media screen and (min-width: $tablet-size) {
+      display: none;
+    }
+    &__bullet {
+      background-color: $text-orange-color;
+      border-radius: 50%;
+      height: 6px;
+      transition: all ease-out 0.3s;
+      width: 6px;
+      &:not(:last-child) {
+        margin: 0 12px 0 0;
+      }
+      &--active {
+        height: 12px;
+        width: 12px;
+      }
+    }
+  }
 }
 @import './gallery';

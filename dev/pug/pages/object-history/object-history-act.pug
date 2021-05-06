@@ -1,0 +1,61 @@
+mixin object-stage-table-items(num, title, quantity, price, sum)
+	li.stage-table__sub-item
+		.row.gx-1.gx-xl-3
+			.col-12.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
+				span.stage-table__text #{num} #{title}
+			.col-3.col-xl-2.d-none.d-xl-flex.align-items-center
+				span.stage-table__text #{price} &#x20bd;
+			.col-3.col-xl-2.d-flex.justify-content-xl-center.align-items-center
+				span.stage-table__text #{quantity}
+			.col-9.col-xl-2.d-flex.justify-content-end.align-items-center
+				span.stage-table__text.stage-table__text--strong #{sum} &#x20bd;
+
+section.object.object-data.pt-25.pb-md-50
+	h1.visually-hidden Данные по объекту
+	.object__stage
+		.object-stage__body.px-xl-100
+			.col-12.col-md-9.mx-md-auto
+				.object-data__head
+					h2.object-stage__title История проекта
+					a.object-data__back(href="#" aria-label="Вернуться назад")
+						+icon('icon-arrow-left', 'object-data__icon', '16', '14')
+					.col-12
+						.object-stage__border
+			.row
+				.col-12
+					.position-relative
+						a.object-data__back(href="history.html" aria-label="Вернуться назад")
+							+icon('icon-arrow-left', 'object-data__icon', '16', '14')
+						h3.object-stage__title.mb-24 Акт о завершении работ от 06 янв 2021
+			.object-stage__table.stage-table
+				ul.stage-table__list
+					li.stage-table__item.mb-xl-24.d-none.d-xl-block
+						.row.gx-1.gx-xl-3
+							.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
+								span.stage-table__text.stage-table__text--grey Наименование
+							.col-xl-2.d-none.d-xl-flex.align-items-center
+								span.stage-table__text.stage-table__text--grey Цена
+							.col-xl-2.d-flex.justify-content-center.align-items-center
+								span.stage-table__text.stage-table__text--grey Кол-во
+							.col-xl-2.d-flex.justify-content-end.align-items-center
+								span.stage-table__text.stage-table__text--grey Сумма
+					li.stage-table__item.stage-table__item--head
+						h3.stage-table__title Категория 1
+						ul.stage-table__sub-list
+							+object-stage-table-items('1.', 'Ремонтныйе штуки какие-нибудь  штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('2.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('3.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+					li.stage-table__item.stage-table__item--head
+						h3.stage-table__title Категория 2
+						ul.stage-table__sub-list
+							+object-stage-table-items('4.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('5.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('6.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+					li.stage-table__item.stage-table__item--head
+						h3.stage-table__title Категория 3
+						ul.stage-table__sub-list
+							+object-stage-table-items('7.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('8.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+							+object-stage-table-items('9.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
+
+

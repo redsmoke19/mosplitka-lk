@@ -16,6 +16,7 @@
   width: 100%;
   @media screen and (min-width: $desktop-size) {
     &:hover {
+      color: $white;
       opacity: 0.7;
     }
   }
@@ -24,16 +25,25 @@
     border: 1px solid $text-orange-color;
     color: $text-orange-color;
     font-weight: 400;
+    &:hover {
+      color: $text-orange-color;
+    }
   }
   &--disabled {
     background-color: $button-disabled-color;
     color: $text-grey-color;
     font-weight: 400;
+    &:hover {
+      color: $text-grey-color;
+    }
   }
   &--text {
     background-color: transparent;
     border: none;
     color: $text-orange-color;
     font-weight: 400;
+    &:hover {
+      color: $text-orange-color;
+    }
   }
 }

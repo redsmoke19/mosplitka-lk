@@ -1,61 +1,37 @@
-mixin object-stage-table-items(num, title, quantity, price, sum)
-	li.stage-table__sub-item
-		.row.gx-1.gx-xl-3
-			.col-12.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
-				span.stage-table__text #{num} #{title}
-			.col-3.col-xl-2.d-none.d-xl-flex.align-items-center
-				span.stage-table__text #{price} &#x20bd;
-			.col-3.col-xl-2.d-flex.justify-content-xl-center.align-items-center
-				span.stage-table__text #{quantity}
-			.col-9.col-xl-2.d-flex.justify-content-end.align-items-center
-				span.stage-table__text.stage-table__text--strong #{sum} &#x20bd;
+mixin object-progress-work(stage, className, text, timeEnd, act, second)
+	li.stage-progress-work__item.object-history-progress__item.col-12(class=className)
+		.col-12.col-md-4.pe-md-30
+			.row
+				.col-12.mb-2
+					p.object-stage__text.object-stage__text--big.text-md-end.mb-0 #[strong #{stage}]
+				.col-12.mb-24
+					p.object-stage__text.object-stage__text--medium.m-0.mb-2.text-md-end #{text}
+					a(href="history-act.html").object-history-progress__link.m-0.text-md-end.d-block #{timeEnd}
+		if (act)
+			.col-12.col-md-8.ps-md-30
+				.col-12.mb-24.d-md-none
+					.object-stage__border.mb-0
+				include object-history-images
+		if (second)
+			.col-12.col-md-8.ps-md-30
+				.col-12.mb-24.d-md-none
+					.object-stage__border.mb-0
+				include object-history-images-2
 
-section.object.object-data.pt-25.pb-md-50
+section.object.object-data.pt-25.pb-50
 	h1.visually-hidden Данные по объекту
 	.object__stage
-		.object-stage__body.px-xl-100
-			.col-12.col-md-9.mx-md-auto
-				.object-data__head
+		.object-stage__body.px-md-20.px-xl-50
+			.col-12.col-xl-12.mx-xl-auto
+				.object-data__head.col-md-11.mx-md-auto
 					h2.object-stage__title История проекта
 					a.object-data__back(href="#" aria-label="Вернуться назад")
 						+icon('icon-arrow-left', 'object-data__icon', '16', '14')
 					.col-12
 						.object-stage__border
-			.row
-				.col-12
-					.position-relative
-						a.object-data__back(href="#" aria-label="Вернуться назад")
-							+icon('icon-arrow-left', 'object-data__icon', '16', '14')
-						h3.object-stage__title.mb-24 Акт о завершении работ от 06 янв 2021
-			.object-stage__table.stage-table
-				ul.stage-table__list
-					li.stage-table__item.mb-xl-24.d-none.d-xl-block
-						.row.gx-1.gx-xl-3
-							.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
-								span.stage-table__text.stage-table__text--grey Наименование
-							.col-xl-2.d-none.d-xl-flex.align-items-center
-								span.stage-table__text.stage-table__text--grey Цена
-							.col-xl-2.d-flex.justify-content-center.align-items-center
-								span.stage-table__text.stage-table__text--grey Кол-во
-							.col-xl-2.d-flex.justify-content-end.align-items-center
-								span.stage-table__text.stage-table__text--grey Сумма
-					li.stage-table__item.stage-table__item--head
-						h3.stage-table__title Категория 1
-						ul.stage-table__sub-list
-							+object-stage-table-items('1.', 'Ремонтныйе штуки какие-нибудь  штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('2.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('3.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-					li.stage-table__item.stage-table__item--head
-						h3.stage-table__title Категория 2
-						ul.stage-table__sub-list
-							+object-stage-table-items('4.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('5.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('6.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-					li.stage-table__item.stage-table__item--head
-						h3.stage-table__title Категория 3
-						ul.stage-table__sub-list
-							+object-stage-table-items('7.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('8.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-							+object-stage-table-items('9.', 'Ремонтныйе штуки какие-нибудь', '2шт', '200 000', '400 000')
-
-
+				.object-stage__progress-work.stage-progress-work.object-history-progress
+					ul.stage-progress-work__list.object-history-progress__list.row.gy-0.gx-0
+						+object-progress-work('01 янв 2021', '_complete', 'Анкета заполнена и отправлена на проверку', '', false)
+						+object-progress-work('06 янв 2021', '_complete', 'Акт о завершении работ отправлен на провреку', 'Посмотреть акт', true)
+						+object-progress-work('21 янв 2021', '_complete', 'Акт о завершении работ отправлен на уточнение', 'Посмотреть акт', false)
+						+object-progress-work('22 янв 2021', '_complete', 'Акт о завершении работ отправлен на провреку', 'Посмотреть акт', false, true)

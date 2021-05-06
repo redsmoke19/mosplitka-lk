@@ -223,80 +223,6 @@
     const da = new DynamicAdapt('min');
     da.init();
   };
-  const getObjectSlider = () => {
-    window.objectSlider = new Swiper('._js-object-slider', {
-      direction: 'horizontal',
-      grabCursor: false,
-      preventClicks: true,
-      preventClicksPropagation: true,
-      slidesPerView: 1,
-      spaceBetween: 15,
-      slidesOffsetBefore: 0,
-      slidesOffsetAfter: 0,
-      autoHeight: true,
-      // allowTouchMove: false,
-    });
-    const sliderNextButton = document.querySelectorAll(
-      '._js-slider-object--next'
-    );
-    sliderNextButton.forEach(item => {
-      item.addEventListener('click', () => {
-        window.objectSlider.slideNext(300);
-      });
-    });
-  };
-  const getCoordinationImagesSlider = () => {
-    const breakpointDesktop = window.matchMedia('(min-width: 768px)');
-    let coordinationImagesSlider;
-
-    const breakpointChecker = function () {
-      let resizeTimeout;
-      if (!resizeTimeout) {
-        resizeTimeout = setTimeout(function () {
-          resizeTimeout = null;
-          resizeHandlerDesktop();
-        }, 100);
-      }
-
-      function resizeHandlerDesktop() {
-        if (breakpointDesktop.matches === true) {
-          if (coordinationImagesSlider !== undefined) {
-            coordinationImagesSlider.destroy(true, true);
-          }
-        } else if (breakpointDesktop.matches === false) {
-          enableSubMenu();
-        }
-      }
-    };
-
-    const enableSubMenu = function () {
-      coordinationImagesSlider = new Swiper('.coordination__images', {
-        direction: 'horizontal',
-        grabCursor: false,
-        preventClicks: true,
-        preventClicksPropagation: true,
-        slidesPerView: 1,
-        spaceBetween: 15,
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-        autoHeight: true,
-        pagination: {
-          el: '.coordination-pagination',
-          type: 'bullets',
-          bulletClass: 'coordination-pagination__bullet',
-          bulletActiveClass: 'coordination-pagination__bullet--active',
-        },
-      });
-    };
-
-    breakpointDesktop.addListener(breakpointChecker);
-    breakpointChecker();
-  };
-  getCoordinationImagesSlider();
-  getObjectSlider();
-  window.addEventListener('load', function () {
-    window.objectSlider.update();
-  });
   const getPageVh = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -333,36 +259,6 @@
             iconMenu.classList.remove('_active');
             menuBody.classList.remove('_active');
           }
-        }
-      });
-    }
-  };
-  const getLoginTabs = () => {
-    const tabsLinks = document.querySelectorAll('.login-tabs__link');
-    const tabsContent = document.querySelectorAll('.login-tabs__content');
-    let tabName;
-    tabsLinks.forEach(item => {
-      item.addEventListener('click', selectTabNav);
-    });
-
-    function selectTabNav() {
-      tabsLinks.forEach(item => {
-        item.classList.remove('_active');
-      });
-      this.classList.add('_active');
-      tabName = this.getAttribute('data-tabsid');
-      selectTabContent(tabName);
-    }
-
-    function selectTabContent(tab) {
-      tabsContent.forEach(item => {
-        const classList = item.classList;
-        if (classList.contains(tab)) {
-          classList.add('_active');
-          // item.style.maxHeight = item.scrollHeight + 'px';
-        } else {
-          classList.remove('_active');
-          // item.style.maxHeight = null;
         }
       });
     }
@@ -451,217 +347,29 @@
       }
     });
   };
-  const getSelects = () => {
-    const selectItems = document.querySelectorAll('.js-select');
-    if (selectItems.length > 0) {
-      selectItems.forEach(item => {
-        new Choices(item, {
-          searchEnabled: false,
-          itemSelectText: '',
-          shouldSort: false,
-        });
-      });
-    }
-
-    const typeOfWork = document.querySelector('#objectTypeOfWork');
-    if (typeOfWork) {
-      const typeOfWorkSelect = new Choices(typeOfWork, {
-        searchEnabled: false,
-        itemSelectText: '',
-        shouldSort: false,
-      });
-      typeOfWork.addEventListener(
-        'addItem',
-        function (event) {
-          const hiddenElement = document.querySelector('._js-objectType');
-          if (hiddenElement) {
-            hiddenElement.classList.add('_active');
-            window.objectSlider.update();
-          }
-        },
-        false
-      );
-    }
-  };
-  const getUploadFiles = () => {
-    const btiFile = document.querySelector('._js-bti-file');
-    Dropzone.autoDiscover = false;
-    if (btiFile) {
-      const BtiUpload = new Dropzone(btiFile, {
-        url: 'http://httpbin.org/anything',
-      });
-      BtiUpload.on('addedfile', file => {
-        btiFile.classList.add('_file-load');
-        window.objectSlider.update();
-      });
-    }
-    const estimateOfferPassport = document.querySelector('._js-estimate-offer');
-    if (estimateOfferPassport) {
-      const estimateOffer = new Dropzone(estimateOfferPassport, {
-        url: 'http://httpbin.org/anything',
-      });
-      estimateOffer.on('addedfile', file => {
-        window.objectSlider.update();
-      });
-    }
-  };
-  const getPopupMap = () => {
-    ymaps.ready(function () {
-      const map = new ymaps.Map('map', {
-        center: [55.76, 37.64],
-        zoom: 10,
-        controls: [],
-      });
-      const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-      );
-      const myPlacemark = new ymaps.Placemark(
-        map.getCenter(),
-        {
-          hintContent: 'Офис Intergator.Digital',
-        },
-        {
-          // Опции.
-          // Необходимо указать данный тип макета.
-          iconLayout: 'default#image',
-          // Своё изображение иконки метки.
-          iconImageHref: './static/images/content/map_marker.svg',
-          // Размеры метки.
-          iconImageSize: [32, 32],
-          // Смещение левого верхнего угла иконки относительно
-          // её "ножки" (точки привязки).
-          iconImageOffset: [-5, -38],
+  const personalEdit = () => {
+    const seePassword = document.querySelector('.personal__change-button');
+    if (seePassword) {
+      const attr = seePassword.previousSibling;
+      seePassword.addEventListener('click', () => {
+        if (attr.getAttribute('type') === 'password') {
+          attr.setAttribute('type', 'text');
+        } else {
+          attr.setAttribute('type', 'password');
         }
-      );
-      map.geoObjects.add(myPlacemark);
-    });
-  };
-  const getDatePicker = () => {
-    const objectDateSize = document.querySelector('#objectDateSize');
-    const customDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-    const customMonth = [
-      'Январь',
-      'Февраль',
-      'Март',
-      'Апрель',
-      'Май',
-      'Июнь',
-      'Июль',
-      'Август',
-      'Сентябрь',
-      'Октябрь',
-      'Ноябрь',
-      'Декабрь',
-    ];
-
-    if (objectDateSize) {
-      const objectDateSizeCalendar = datepicker(objectDateSize, {
-        formatter: (input, date, instance) => {
-          input.value = 'c ' + date.toLocaleDateString();
-        },
-        disabledDates: [
-          new Date(2021, 3, 5),
-          new Date(2021, 3, 8),
-          new Date(2021, 3, 10),
-          new Date(2021, 3, 11),
-          new Date(2021, 3, 19),
-        ],
-        alwaysShow: true,
-        showAllDates: true,
-        startDay: 1,
-        customDays: customDays,
-        customMonths: customMonth,
-        overlayButton: 'Выбрать',
-        overlayPlaceholder: 'Введите год',
-        onSelect: (instance, date) => {
-          const hiddenBlock = document.querySelector('._js-chose-date');
-          if (date !== undefined) {
-            hiddenBlock.classList.add('_active');
-            window.objectSlider.update();
-          } else {
-            hiddenBlock.classList.remove('_active');
-            window.objectSlider.update();
-          }
-        },
       });
     }
-  };
-  const getInputValueToOtherInput = () => {
-    const inputAddressOfWork = document.querySelector('#objectAddressOfWork');
-    const objectAddressOfWorkConfirm = document.querySelector(
-      '#objectAddressOfWorkConfirm'
+
+    const changeInputButtons = document.querySelectorAll(
+      '._js-personal-change'
     );
-    if (inputAddressOfWork) {
-      inputAddressOfWork.addEventListener('blur', () => {
-        objectAddressOfWorkConfirm.value = inputAddressOfWork.value;
-      });
-    }
-  };
-  const getRemoveAttribute = () => {
-    const changeInputObjectButton = document.querySelector('._js-change-input-address-button');
-    const changeInputObjectInput = document.querySelector('._js-change-input-address-input');
-    function removettribute(item, target, attr) {
+    changeInputButtons.forEach(item => {
       item.addEventListener('click', () => {
-        target.removeAttribute(attr);
-        target.focus();
+        let parentItem = item.parentElement;
+        let input = parentItem.querySelector('.personal__input');
+        input.removeAttribute('readonly');
+        input.focus();
       });
-    }
-    if (changeInputObjectButton) {
-      removettribute(changeInputObjectButton, changeInputObjectInput, 'readonly');
-    }
-  };
-  const getShowHiddenTextarea = () => {
-    const stageTableItems = document.querySelectorAll('.stage-table__sub-item');
-    const showButtons = document.querySelectorAll(
-      '.stage-table__change-button'
-    );
-
-    const getEditEstimate = function (listItem, beforeNode) {
-      const textarea = listItem.querySelector('.stage-table__textarea');
-      const element = document.createElement('p');
-      const elementDeleteButton = document.createElement('button');
-      element.classList.add('stage-table__text-added');
-      elementDeleteButton.classList.add('stage-table__text-delete');
-      element.textContent = textarea.value;
-      element.append(elementDeleteButton);
-      beforeNode.before(element);
-    };
-
-    const getRemoveEditorEstimate = function (listItem) {
-      const removeButton = listItem.querySelector('.stage-table__text-delete');
-      removeButton.addEventListener('click', () => {
-        removeButton.parentElement.remove();
-        window.objectSlider.update();
-      });
-    };
-
-    showButtons.forEach((item, i) => {
-      item.addEventListener('click', () => {
-        const hiddenElement = stageTableItems[i].querySelector('._hidden');
-        hiddenElement.classList.toggle('_active');
-        window.objectSlider.update();
-      });
-    });
-
-    stageTableItems.forEach((item, i) => {
-      const addedButton = item.querySelector('.stage-table__button-add');
-      const hiddenElement = item.querySelector('._hidden, ._active');
-      if (addedButton) {
-        addedButton.addEventListener('click', () => {
-          const addElement = item.querySelector('.stage-table__text-added');
-          const textarea = item.querySelector('.stage-table__textarea');
-          if (!textarea.value) return;
-          if (addElement) {
-            addElement.remove();
-            getEditEstimate(item, showButtons[i]);
-          } else {
-            getEditEstimate(item, showButtons[i]);
-          }
-          getRemoveEditorEstimate(item);
-          hiddenElement.classList.remove('_active');
-          window.objectSlider.update();
-        });
-      }
     });
   };
   const getObjectProgressHeight = () => {
@@ -698,16 +406,17 @@
     function actualResizeHandler() {
       getPageVh();
       getObjectProgressHeight();
-      window.objectSlider.update();
     }
   };
-  const getCoordinationImageSeeMore = () => {
+  const getHistoryImageSeeMore = () => {
     const photosWork = document.querySelectorAll('.photos-works');
     if (photosWork.length > 0) {
       photosWork.forEach(item => {
         const photosList = item.querySelector('.photos-works__list');
         const photoItems = item.querySelectorAll('.photos-works__item');
-        const photosCount = item.parentElement.querySelector('.photos-works__more-count');
+        const photosCount = item.parentElement.querySelector(
+          '.photos-works__more-count'
+        );
         const seeMoreButtons = item.querySelectorAll('._js-see-more-photos');
         photosCount.textContent = `+${photoItems.length - 4}`;
         seeMoreButtons.forEach(item => {
@@ -719,47 +428,105 @@
               seeMoreButtons.forEach(item => {
                 item.remove();
               });
-              window.objectSlider.update();
             });
           }
         });
       });
     }
   };
+  const getCoordinationImagesSlider = () => {
+    const historySliders = document.querySelectorAll(
+      '.object-history-photos__images'
+    );
+    if (historySliders.length > 0) {
+      const breakpointDesktop = window.matchMedia('(min-width: 768px)');
+      let coordinationImagesSlider = [];
+
+      const breakpointChecker = function () {
+        let resizeTimeout;
+        if (!resizeTimeout) {
+          resizeTimeout = setTimeout(function () {
+            resizeTimeout = null;
+            resizeHandlerDesktop();
+          }, 100);
+        }
+
+        function resizeHandlerDesktop() {
+          if (breakpointDesktop.matches === true) {
+            if (coordinationImagesSlider.length > 0) {
+              coordinationImagesSlider.forEach(item => {
+                item.destroy(true, true);
+              });
+            }
+          } else if (breakpointDesktop.matches === false) {
+            enableSubMenu();
+            console.log(coordinationImagesSlider.length);
+          }
+        }
+      };
+
+      const enableSubMenu = function () {
+        for (let i = 0; i < historySliders.length; i++) {
+          coordinationImagesSlider[i] = new Swiper(
+            historySliders[i],
+            {
+              direction: 'horizontal',
+              grabCursor: false,
+              preventClicks: true,
+              preventClicksPropagation: true,
+              slidesPerView: 1,
+              spaceBetween: 15,
+              slidesOffsetBefore: 0,
+              slidesOffsetAfter: 0,
+              autoHeight: true,
+              pagination: {
+                el: '.object-history-photos-pagination',
+                type: 'bullets',
+                bulletClass: 'coordination-pagination__bullet',
+                bulletActiveClass: 'coordination-pagination__bullet--active',
+              },
+            }
+          );
+        }
+      };
+
+      breakpointDesktop.addListener(breakpointChecker);
+      breakpointChecker();
+    }
+  };
   const gallery = () => {
-    lightGallery(document.querySelector('.lightgallery'), {
-      thumbnail: true,
-      hideBarsDelay: 0,
-      thumbMargin: 10,
-      width: '600px',
-      height: '600px',
-      mode: 'lg-fade',
-      addClass: 'photos-works__gallery',
-      counter: false,
-      download: false,
-      startClass: '',
-      enableDrag: false,
-      speed: 500,
-      thumbWidth: 64,
-      thumbContHeight: 104,
-      zoom: false,
-    });
+    const lightGalleris = document.querySelectorAll('.lightgallery');
+    if (lightGalleris.length > 0) {
+      lightGalleris.forEach(item => {
+        lightGallery(item, {
+          thumbnail: true,
+          hideBarsDelay: 0,
+          thumbMargin: 10,
+          width: '600px',
+          height: '600px',
+          mode: 'lg-fade',
+          addClass: 'photos-works__gallery',
+          counter: false,
+          download: false,
+          startClass: '',
+          enableDrag: false,
+          speed: 500,
+          thumbWidth: 64,
+          thumbContHeight: 104,
+          zoom: false,
+        });
+      });
+    }
   };
   dynamicAdaptive();
   getPageVh();
   getFixedHeader();
   sandwichToggle();
-  getLoginTabs();
   getPopup();
-  getResizePage();
-  getSelects();
-  getUploadFiles();
-  getPopupMap();
-  getDatePicker();
-  getRemoveAttribute();
-  getInputValueToOtherInput();
-  // getShowHiddenTextarea();
+  personalEdit();
   getObjectProgressHeight();
-  getCoordinationImageSeeMore();
+  getResizePage();
+  getHistoryImageSeeMore();
+  getCoordinationImagesSlider();
   gallery();
 })();

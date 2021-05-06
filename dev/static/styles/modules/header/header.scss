@@ -51,6 +51,7 @@ header {
     text-decoration: none;
     transition: all ease-out 0.2s;
     &:hover {
+      color: $white;
       opacity: 0.8;
     }
   }
@@ -102,6 +103,7 @@ header {
     }
     @media screen and (min-width: $desktop-size) {
       &:hover {
+        color: $text-black-color;
         opacity: 0.7;
       }
     }
