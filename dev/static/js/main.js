@@ -246,57 +246,60 @@
     });
   };
   const getCoordinationImagesSlider = () => {
-    const breakpointDesktop = window.matchMedia('(min-width: 768px)');
-    let coordinationImagesSlider;
+    const coordSlider = document.querySelector('.coordination__images');
+    if (coordSlider) {
+      const breakpointDesktop = window.matchMedia('(min-width: 768px)');
+      let coordinationImagesSlider;
 
-    const breakpointChecker = function () {
-      let resizeTimeout;
-      if (!resizeTimeout) {
-        resizeTimeout = setTimeout(function () {
-          resizeTimeout = null;
-          resizeHandlerDesktop();
-        }, 100);
-      }
-
-      function resizeHandlerDesktop() {
-        if (breakpointDesktop.matches === true) {
-          if (coordinationImagesSlider !== undefined) {
-            coordinationImagesSlider.destroy(true, true);
-          }
-        } else if (breakpointDesktop.matches === false) {
-          enableSubMenu();
+      const breakpointChecker = function () {
+        let resizeTimeout;
+        if (!resizeTimeout) {
+          resizeTimeout = setTimeout(function () {
+            resizeTimeout = null;
+            resizeHandlerDesktop();
+          }, 100);
         }
-      }
-    };
 
-    const enableSubMenu = function () {
-      coordinationImagesSlider = new Swiper('.coordination__images', {
-        direction: 'horizontal',
-        grabCursor: false,
-        preventClicks: true,
-        preventClicksPropagation: true,
-        slidesPerView: 1,
-        spaceBetween: 15,
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-        autoHeight: true,
-        pagination: {
-          el: '.coordination-pagination',
-          type: 'bullets',
-          bulletClass: 'coordination-pagination__bullet',
-          bulletActiveClass: 'coordination-pagination__bullet--active',
-        },
-      });
-    };
+        function resizeHandlerDesktop() {
+          if (breakpointDesktop.matches === true) {
+            if (coordinationImagesSlider !== undefined) {
+              coordinationImagesSlider.destroy(true, true);
+            }
+          } else if (breakpointDesktop.matches === false) {
+            enableSubMenu();
+          }
+        }
+      };
 
-    breakpointDesktop.addListener(breakpointChecker);
-    breakpointChecker();
+      const enableSubMenu = function () {
+        coordinationImagesSlider = new Swiper('.coordination__images', {
+          direction: 'horizontal',
+          grabCursor: false,
+          preventClicks: true,
+          preventClicksPropagation: true,
+          slidesPerView: 1,
+          spaceBetween: 15,
+          slidesOffsetBefore: 0,
+          slidesOffsetAfter: 0,
+          autoHeight: true,
+          pagination: {
+            el: '.coordination-pagination',
+            type: 'bullets',
+            bulletClass: 'coordination-pagination__bullet',
+            bulletActiveClass: 'coordination-pagination__bullet--active',
+          },
+        });
+      };
+
+      breakpointDesktop.addListener(breakpointChecker);
+      breakpointChecker();
+    }
   };
   getCoordinationImagesSlider();
-  getObjectSlider();
-  window.addEventListener('load', function () {
-    window.objectSlider.update();
-  });
+  // getObjectSlider();
+  // window.addEventListener('load', function () {
+  //   window.objectSlider.update();
+  // });
   const getPageVh = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -476,7 +479,7 @@
           const hiddenElement = document.querySelector('._js-objectType');
           if (hiddenElement) {
             hiddenElement.classList.add('_active');
-            window.objectSlider.update();
+            // window.objectSlider.update();
           }
         },
         false
@@ -492,7 +495,7 @@
       });
       BtiUpload.on('addedfile', file => {
         btiFile.classList.add('_file-load');
-        window.objectSlider.update();
+        // window.objectSlider.update();
       });
     }
     const estimateOfferPassport = document.querySelector('._js-estimate-offer');
@@ -501,40 +504,44 @@
         url: 'http://httpbin.org/anything',
       });
       estimateOffer.on('addedfile', file => {
-        window.objectSlider.update();
+        // window.objectSlider.update();
       });
     }
   };
   const getPopupMap = () => {
-    ymaps.ready(function () {
-      const map = new ymaps.Map('map', {
-        center: [55.76, 37.64],
-        zoom: 10,
-        controls: [],
+    const map = document.querySelector('#map');
+
+    if (map) {
+      ymaps.ready(function () {
+        const map = new ymaps.Map('map', {
+          center: [55.76, 37.64],
+          zoom: 10,
+          controls: [],
+        });
+        const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        );
+        const myPlacemark = new ymaps.Placemark(
+          map.getCenter(),
+          {
+            hintContent: 'Офис Intergator.Digital',
+          },
+          {
+            // Опции.
+            // Необходимо указать данный тип макета.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки.
+            iconImageHref: './static/images/content/map_marker.svg',
+            // Размеры метки.
+            iconImageSize: [32, 32],
+            // Смещение левого верхнего угла иконки относительно
+            // её "ножки" (точки привязки).
+            iconImageOffset: [-5, -38],
+          }
+        );
+        map.geoObjects.add(myPlacemark);
       });
-      const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-      );
-      const myPlacemark = new ymaps.Placemark(
-        map.getCenter(),
-        {
-          hintContent: 'Офис Intergator.Digital',
-        },
-        {
-          // Опции.
-          // Необходимо указать данный тип макета.
-          iconLayout: 'default#image',
-          // Своё изображение иконки метки.
-          iconImageHref: './static/images/content/map_marker.svg',
-          // Размеры метки.
-          iconImageSize: [32, 32],
-          // Смещение левого верхнего угла иконки относительно
-          // её "ножки" (точки привязки).
-          iconImageOffset: [-5, -38],
-        }
-      );
-      map.geoObjects.add(myPlacemark);
-    });
+    }
   };
   const getDatePicker = () => {
     const objectDateSize = document.querySelector('#objectDateSize');
@@ -577,10 +584,10 @@
           const hiddenBlock = document.querySelector('._js-chose-date');
           if (date !== undefined) {
             hiddenBlock.classList.add('_active');
-            window.objectSlider.update();
+            // window.objectSlider.update();
           } else {
             hiddenBlock.classList.remove('_active');
-            window.objectSlider.update();
+            // window.objectSlider.update();
           }
         },
       });
@@ -631,7 +638,7 @@
       const removeButton = listItem.querySelector('.stage-table__text-delete');
       removeButton.addEventListener('click', () => {
         removeButton.parentElement.remove();
-        window.objectSlider.update();
+        // window.objectSlider.update();
       });
     };
 
@@ -639,7 +646,7 @@
       item.addEventListener('click', () => {
         const hiddenElement = stageTableItems[i].querySelector('._hidden');
         hiddenElement.classList.toggle('_active');
-        window.objectSlider.update();
+        // window.objectSlider.update();
       });
     });
 
@@ -659,7 +666,7 @@
           }
           getRemoveEditorEstimate(item);
           hiddenElement.classList.remove('_active');
-          window.objectSlider.update();
+          // window.objectSlider.update();
         });
       }
     });
@@ -698,7 +705,7 @@
     function actualResizeHandler() {
       getPageVh();
       getObjectProgressHeight();
-      window.objectSlider.update();
+      // window.objectSlider.update();
     }
   };
   const getCoordinationImageSeeMore = () => {
@@ -719,7 +726,7 @@
               seeMoreButtons.forEach(item => {
                 item.remove();
               });
-              window.objectSlider.update();
+              // window.objectSlider.update();
             });
           }
         });

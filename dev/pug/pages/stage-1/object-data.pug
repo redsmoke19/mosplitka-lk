@@ -1,0 +1,102 @@
+.object__stage.object-stage
+	include header-data
+	.object-stage__body
+		h2.object-stage__title.col-md-10 Заполнение данных по объекту
+		p.object-stage__text.col-md-8 Пожалуйста ответтье на эти вопросы, что бы мы смогли подобрать для вас необходимые решения.
+		.col-12
+			.object-stage__border
+		.row.mb-48
+			.col-12
+				label.object-stage__label(for="objectTypeOfWork") Вид работ
+			.col-12
+				select(data-trigger id="objectTypeOfWork")
+					option(value="") Выберите тип
+					option(value="Ремонт квартир и домов") Ремонт квартир и домов
+					option(value="Ремонт санузлов") Ремонт санузлов
+					option(value="Профессиональная укладка плитки") Профессиональная укладка плитки
+					option(value="Укладка плит большого формата") Укладка плит большого формата (от 1 600 мм)
+					option(value="Нежилое помещение") Нежилое помещение / офис
+			.col-12.object-stage__hidden._js-objectType.mt-25
+				.row
+					.col-12.col-md-6.mb-20.mb-md-0
+						label.object-stage__label(for="objectSquare") Площадь, м2
+						input.object-stage__input(type="text" id="objectSquare" placeholder="")
+					.col-12.col-md-6
+						label.object-stage__label(for="objectWC") Количество санузлов
+						input.object-stage__input(type="text" id="objectWC" placeholder="")
+		.row
+			.col-12
+				h3.object-stage__legend Жалаемая дата начала работ
+			.col-12
+				.row.mb-sm-25
+					.col-12.col-sm-4.mb-30.mb-sm-0
+						label.object-stage__label(for="objectDayOfWork") День
+						input.object-stage__input(type="text" id="objectDayOfWork" placeholder="День")
+					.col-12.col-sm-4.mb-30.mb-sm-0
+						label.object-stage__label(for="objectMounthOfWork") Месяц
+						select.js-select(data-trigger placeholder="This is a search placeholder" id="objectMounthOfWork")
+							option(value="Январь") Январь
+							option(value="Февраль") Февраль
+							option(value="Март") Март
+							option(value="Апрель") Апрель
+							option(value="Май") Май
+							option(value="Июнь") Июнь
+							option(value="Июль") Июль
+							option(value="Август") Август
+							option(value="Сентябрь") Сентябрь
+							option(value="Октябрь") Октябрь
+							option(value="Ноябрь") Ноябрь
+							option(value="Декабрь") Декабрь
+					.col-12.col-sm-4.mb-30.mb-sm-0
+						label.object-stage__label(for="objectYearOfWork") Год
+						input.object-stage__input(type="text" id="objectYearOfWork" placeholder="2021")
+			.col-12
+				.row
+					.col-12.mb-30.mb-sm-25
+						label.object-stage__label(for="objectAddressOfWork") Адрес объекта
+						.object-stage__input-box
+							input.object-stage__input.pe-130(type="text" id="objectAddressOfWork" placeholder="Адрес")
+							a(href="#map")._popup-link.object-stage__input-link Показать на карте
+					.col-12.col-sm-4.mb-30.mb-sm-25
+						label.object-stage__label(for="objectEntranceOfWork") Подъезд
+						input.object-stage__input(type="text" id="objectEntranceOfWork" placeholder="")
+					.col-12.col-sm-4.mb-30.mb-sm-25
+						label.object-stage__label(for="objectFloorOfWork") Этаж
+						input.object-stage__input(type="text" id="objectFloorOfWork" placeholder="")
+					.col-12.col-sm-4.mb-30.mb-sm-25
+						label.object-stage__label(for="objectIntercomOfWork") Домофон
+						input.object-stage__input(type="text" id="objectIntercomOfWork" placeholder="")
+			.col-12.mb-30.mb-sm-25
+				label.object-stage__label(for="objectElevatorOfWork") Есть ли лифт?
+				select.js-select(data-trigger id="objectElevatorOfWork")
+					option(value="Да") Да
+					option(value="Нет") Нет
+			.col-12.mb-30.mb-sm-25
+				label.object-stage__label(for="objectAccessInObject") Доступ на объект
+				select.js-select(data-trigger id="objectAccessInObject")
+					option(value="Свободный") Свободный
+					option(value="По пропускам") По пропускам
+					option(value="По звонку") По звонку
+			.col-12.mb-30.mb-sm-25
+				label.object-stage__label(for="objectDisignObject") У вас есть дизайн-проект?
+				select.js-select(data-trigger id="objectDisignObject")
+					option(value="Нет") Нет
+					option(value="Да") Да
+			.col-12.mb-30.mb-sm-25
+				label.object-stage__label(for="objectPlanBTIObject") У вас есть план БТИ или поэтажный план?
+				select.js-select(data-trigger id="objectPlanBTIObject")
+					option(value="Да") Да
+					option(value="Нет") Нет
+			.col-12.mb-30.mb-sm-25.d-md-flex.align-items-md-center.position-relative
+				label.object-stage__label.col-md-8.mb-md-0 Пожалуйтса добавте его во вложение
+				.dropzone.dropzone--mobile.object-stage__dropzone.file-upload._js-bti-file.col-md-4
+					.dz-message.file-upload__message
+						button.file-upload__button
+							+icon('icon-attachment', 'file-upload__icon file-upload__icon--dowload d-none d-md-block', '24', '24')
+							+icon('icon-upload', 'file-upload__icon file-upload__icon--dowload d-md-none', '24', '24')
+							span.d-md-none Загрузить файл
+							span.d-none.d-md-block Прикрепить файл
+			.col-12
+				.object-stage__border
+			.col-12.col-md-6.ms-md-auto
+					button.button Далее

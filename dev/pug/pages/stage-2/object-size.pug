@@ -1,0 +1,50 @@
+.object__stage.object-stage
+	include header-size
+	.object-stage__body
+		h2.object-stage__title.col-md-10 Согласование замера
+		p.object-stage__text.col-md-8 Выберите, пожалуйста, удобную дату и время для проведения замера.
+		p.object-stage__text.text-danger.col-md-8.m-0 #[strong Обращаем ваше внимание!]
+		p.object-stage__text.col-md-8 #[strong Замер у нас в компании платный]
+		p.object-stage__text.col-md-8.m-0 #[strong 1500 &#8381;] в Москве
+		p.object-stage__text.col-md-8.m-0 #[strong от 2500 &#8381;] по Московской области
+		p.object-stage__text.object-stage__text--note.col-md-8 в зависимости от расстояния
+		p.object-stage__text.col-md-8.mb-md-24 Эта сумма зачисляется вам на счет и расходуется на оплату ремонтных работ. После замера вы получите подробный сметный расчет.
+		.col-12
+			.object-stage__border.mb-md-24
+		.row
+			.col-12
+				label.object-stage__label--black Дата замера
+			.col-12
+				.object-stage__date(id="objectDateSize")
+			.col-12._js-chose-date.mt-32.mt-md-24.object-stage__hidden
+				.row.mb-md-0.gx-1
+					.col-12
+						.object-stage__border.mb-32.mb-md-24
+					.col-12
+						label.object-stage__label--black(for="objectSquare") Время замера
+					.col-12.col-sm-4.mb-12.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize9-12" autocomplete="off" checked)
+						label.btn.btn-info.object-stage__choose-time(for="timeSize9-12") 9:00 - 12:00
+					.col-12.col-sm-4.mb-12.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize13-16" autocomplete="off")
+						label.btn.btn-info.object-stage__choose-time(for="timeSize13-16") 13:00 - 16:00
+					.col-12.col-sm-4.mb-sm-32.mb-md-24
+						input.btn-check.object-stage__time-radio(type="radio" name="timeGetSize" id="timeSize17-20" autocomplete="off")
+						label.btn.btn-info.object-stage__choose-time(for="timeSize17-20") 17:00 - 20:00
+					.col-12
+						.object-stage__border.mb-32.mb-md-24
+					.col-12
+						p.object-stage__text.object-stage__text--big.mb-md-24 Замер будет проходить по адресу:
+						.object-stage__input-box.object-stage__input-box--fade
+							input.object-stage__input._js-change-input-address-input.mb-25.mb-md-12(type="text" id="objectAddressOfWorkConfirm" placeholder="" readonly="true")
+						button.object-stage__change-button._js-change-input-address-button.mb-32.ms-auto
+							+icon('icon-change', 'object-stage__icon object-stage__icon--change', '32', '32')
+							span Изменить
+					.col-12
+						.object-stage__border
+					.col-12
+						.row
+							.col-12.col-md-6.mb-12.order-md-2
+								a(href="#measurement-assigned").button._popup-link Заказать замер
+							.col-12.col-md-6
+								p.object-stage__text.text-center.text-md-start.text-secondary.mb-0.fz-12 Нажимая кнопку «Заказать замер» вы соглашаетесь на оплату стоимости замера.

@@ -1,0 +1,41 @@
+mixin object-progress-work(stage, className, text, status, timeEnd, act)
+	li.stage-progress-work__item.col-12(class=className)
+		.col-12.col-md-6.pe-md-20
+			.row
+				.col-12.col-sm-6.col-md-12.mb-24.mb-md-2
+					p.object-stage__text.object-stage__text--big.text-md-end.mb-0 #{stage}
+					p.object-stage__text.object-stage__text--note.mb-0.text-md-end #{status}
+				.col-12.col-sm-6.col-md-12.mb-24
+					p.object-stage__text.object-stage__text--medium.m-0.text-sm-end #{text}
+					p.object-stage__text.object-stage__text--medium.m-0.text-sm-end #{timeEnd}
+				.col-12.mb-24.d-md-none
+					.object-stage__border.mb-0
+		if (act)
+			.col-12.col-md-6.ps-md-20
+				.row
+					.col-12
+						h3.object-stage__title Работы завершены
+						p.object-stage__text.mb-24 Пожалуйста согласуйте акт выполненых работ
+						.col-12.mb-24.d-none.d-md-block
+							.object-stage__border.mb-0
+						a(href="#").button.mb-16 Посмотерть акт
+						p.object-stage__text.object-stage__text--small.text-danger Если в течение трех дней вы не укажите обоснованные причины, по которым не можете принять выполненные работы, то они считаются принятыми в соответствии с п. договора
+
+.object__stage.object-stage
+	include header-progress-work
+	.object-stage__body.px-xl-100
+		.col-12.col-xl-10.mx-xl-auto
+			.col-12.col-xl-9.mx-xl-auto
+				h2.object-stage__title Работы идут полным ходом!
+				p.object-stage__text Вы можете отслеживать ход работ поэтапно на этом графике.
+				.col-12
+					.object-stage__border
+			.object-stage__progress-work.stage-progress-work
+				ul.stage-progress-work__list.row.gy-0.gx-0
+					+object-progress-work('Этап 1', '_in-work', 'Дата сдачи', 'Ожидает проверки', '12 января 2021', true)
+					+object-progress-work('Этап 2', '', 'Предположительная дата сдачи', 'Подготовка', '12 января 2021', false)
+					+object-progress-work('Этап 3', '', 'Предположительная дата сдачи', 'Подготовка', '12 января 2021', false)
+					+object-progress-work('Этап 4', '', 'Предположительная дата сдачи', 'Подготовка', '12 января 2021', false)
+
+
+

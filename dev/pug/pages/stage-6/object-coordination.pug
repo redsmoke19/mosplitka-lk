@@ -1,0 +1,27 @@
+.object__stage.object-stage
+	include header-coordination
+	.object-stage__body.px-xl-100
+		.col-12.col-xl-7.mx-xl-auto
+			h2.object-stage__title Согласование акта выполненных работ
+			p.object-stage__text.text-danger Если в течение трех дней вы не укажите обоснованные причины, по которым не можете принять выполненные работы, то они считаются принятыми в соответствии с п.  договора
+		.col-12
+			.object-stage__border
+		.coordination__table.mb-32
+			include object-coordination-table/coordination-table
+		.coordination__photos.photos-works
+			include object-coorditation-picture/coorditation-picture
+			button.coordination__see-more.photos-works__see-more._js-see-more-photos Смотреть все изображения
+		.col-12
+			.object-stage__border
+		.row.gx-lg-3.justify-content-md-center.justify-content-xl-between
+			.col-12.col-md-6.col-xl-4.mb-16.mb-xl-0.order-md-2.d-xl-flex.text-xl-center
+				a(href="#coordination-works-complete").button.px-2._popup-link Подписать
+			.col-12.col-md-6.col-xl-4.mb-16.mb-xl-0.d-xl-flex.text-xl-center
+				a(href="#coordination-works-report").button.button--transparent.px-2._popup-link Работы принять не могу
+			.col-12.col-md-6.col-xl-4.d-xl-flex.text-xl-center
+				a.button.button--transparent.px-2 Требуются пояснения
+
+
+
+
+
