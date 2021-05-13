@@ -468,6 +468,11 @@
 
     const typeOfWork = document.querySelector('#objectTypeOfWork');
     if (typeOfWork) {
+      const hiddenElement = document.querySelector('._js-objectType');
+      if (typeOfWork.value !== '') {
+        hiddenElement.classList.add('_active');
+      }
+      console.log(typeOfWork.getAttribute('selected'));
       const typeOfWorkSelect = new Choices(typeOfWork, {
         searchEnabled: false,
         itemSelectText: '',
@@ -476,8 +481,8 @@
       typeOfWork.addEventListener(
         'addItem',
         function (event) {
-          const hiddenElement = document.querySelector('._js-objectType');
           if (hiddenElement) {
+            console.log(typeOfWork.value === '');
             hiddenElement.classList.add('_active');
             // window.objectSlider.update();
           }

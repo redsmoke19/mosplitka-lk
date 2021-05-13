@@ -1,6 +1,6 @@
 .object__stage.object-stage
 	include header-data
-	.object-stage__body
+	form(action="", method="post").object-stage__body
 		h2.object-stage__title.col-md-10 Заполнение данных по объекту
 		p.object-stage__text.col-md-8 Пожалуйста ответтье на эти вопросы, что бы мы смогли подобрать для вас необходимые решения.
 		.col-12
@@ -99,4 +99,4 @@
 			.col-12
 				.object-stage__border
 			.col-12.col-md-6.ms-md-auto
-					button.button Далее
+					button.button(type="submit") Далее
