@@ -1,8 +1,10 @@
 mixin object-stage-table-items(num, title, quantity, price, sum)
 	li.stage-table__sub-item
 		.row.gx-1.gx-xl-3
-			.col-12.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
+			.col-12.col-xl-4.mb-16.mb-xl-0.d-xl-flex.align-items-center
 				span.stage-table__text #{num} #{title}
+			.col-3.col-xl-2.d-none.d-xl-flex.align-items-center
+				span.stage-table__text м.п.
 			.col-3.col-xl-2.d-none.d-xl-flex.align-items-center
 				span.stage-table__text #{price} &#x20bd;
 			.col-3.col-xl-2.d-flex.justify-content-xl-center.align-items-center
@@ -25,9 +27,6 @@ mixin object-stage-table-items(num, title, quantity, price, sum)
 		.col-12.col-xl-7.mx-xl-auto
 			h2.object-stage__title Мы подготовили для вас смету
 			p.object-stage__text Пожалуйста проверьте её, если у вас есть вопросы — нажмите на кнопку "Требуется пояснения"
-			//- p.object-stage__text.d-none.d-xl-block
-			//- 	span Для этого нажмите на
-			//- 	+icon('icon-edit', 'object-stage__icon ms-xl-12', '16', '16')
 			p.object-stage__text.text-danger.mb-0 #[strong Обращаем ваше внимание!]
 			p.object-stage__text При электронном подписании договора вам необходимо будет внести предоплату, указанную в соответствующем разделе сметы.
 		.col-12
@@ -36,8 +35,10 @@ mixin object-stage-table-items(num, title, quantity, price, sum)
 			ul.stage-table__list
 				li.stage-table__item.mb-xl-24.d-none.d-xl-block
 					.row.gx-1.gx-xl-3
-						.col-xl-6.mb-16.mb-xl-0.d-xl-flex.align-items-center
-							span.stage-table__text.stage-table__text--grey Наименование
+						.col-xl-4.mb-16.mb-xl-0.d-xl-flex.align-items-center
+							span.stage-table__text.stage-table__text--grey Наименование работ
+						.col-xl-2.mb-16.mb-xl-0.d-xl-flex.align-items-center
+							span.stage-table__text.stage-table__text--grey Ед.изм
 						.col-xl-2.d-none.d-xl-flex.align-items-center
 							span.stage-table__text.stage-table__text--grey Цена
 						.col-xl-2.d-flex.justify-content-center.align-items-center
